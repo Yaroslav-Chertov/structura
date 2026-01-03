@@ -17,11 +17,16 @@ const Hero: React.FC = () => {
       <h1 className={styles.title}>Structura</h1>
       <h2 className={styles.subtitle}>Из хаоса — в систему</h2>
       <p className={styles.description}>
-        Преврати хаос целей в ясный, управляемый план: подцели, чеклисты,
-        таймлайн и прогресс, чтобы каждая задача была видимой, достижимой и ты
-        всегда знал, что делать сегодня.
+        Планер, который помогает разложить цели по&nbsp;шагам, отслеживать
+        прогресс и&nbsp;каждый день ясно понимать, на&nbsp;чём стоит
+        сфокусироваться сейчас.
       </p>
-      <button className={styles.button}>Подробнее</button>
+      <div className={styles.buttonGroup}>
+        <button className={styles.button}>Купить</button>
+        <a href="#product" className={styles.buttonOutline}>
+          Подробнее
+        </a>
+      </div>
       <div className={styles.videoWrapper}>
         <video src="/video/demo.mp4" controls className={styles.video} />
       </div>
