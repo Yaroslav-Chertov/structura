@@ -1,3 +1,5 @@
+@use "variables" as var;
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +7,8 @@
 }
 
 body {
-  font-family: $font-family;
-  font-size: $font-size-base;
-  background-color: $secondary-color;
+  font-family: var.$font-family;
+  font-size: var.$font-size-base;
+  background-color: var.$secondary-color;
   color: #111827;
 }

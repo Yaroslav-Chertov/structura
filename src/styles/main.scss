@@ -1,5 +1,5 @@
-@import "variables";
-@import "globals";
+@use "variables" as var;
+@use "globals";
 
 html {
   scroll-behavior: smooth;
