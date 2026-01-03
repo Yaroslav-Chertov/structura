@@ -64,6 +64,27 @@
   }
 }
 
+.price {
+  margin: 20px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  .current {
+    color: #4f46e5;
+  }
+
+  .old {
+    color: #9ca3af;
+    text-decoration: line-through;
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+}
+
 .buyButton {
   max-width: 420px;
   width: 100%;

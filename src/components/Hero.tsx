@@ -21,6 +21,12 @@ const Hero: React.FC = () => {
         прогресс и&nbsp;каждый день ясно понимать, на&nbsp;чём стоит
         сфокусироваться сейчас.
       </p>
+
+      <div className={styles.price}>
+        <span className={styles.current}>790 ₽</span>
+        <span className={styles.old}>1 290 ₽</span>
+      </div>
+
       <div className={styles.buttonGroup}>
         <button className={styles.button}>Купить</button>
         <a href="#product" className={styles.buttonOutline}>

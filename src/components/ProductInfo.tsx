@@ -57,6 +57,11 @@ const ProductInfo: React.FC = () => {
         </div>
       </div>
 
+      <div className={styles.price}>
+        <span className={styles.current}>790 ₽</span>
+        <span className={styles.old}>1 290 ₽</span>
+      </div>
+
       <button className={styles.buyButton}>Купить планер</button>
     </section>
   );
