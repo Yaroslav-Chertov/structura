@@ -1,4 +1,4 @@
-@import "../styles/variables";
+@use "../styles/variables" as var;
 
 .hero {
   display: flex;
@@ -75,7 +75,7 @@
   margin-top: 10px;
   font-size: 1.1rem;
   font-weight: 600;
-  background-color: $primary-color;
+  background-color: var.$primary-color;
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -125,7 +125,7 @@
   }
 
   &:hover {
-    color: $primary-color;
+    color: var.$primary-color;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
   }
