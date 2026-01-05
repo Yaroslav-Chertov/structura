@@ -7,15 +7,13 @@ const BuySection: React.FC = () => {
   return (
     <section id="buy" className={styles.buy}>
       <div className={styles.card}>
-        <h2 className={styles.title}>Готовы навести порядок в целях?</h2>
+        <h2 className={styles.title}>
+          Превратите цели в результат уже сегодня
+        </h2>
         <p className={styles.subtitle}>
-          Получите Structura и начните управлять своим фокусом уже сегодня
+          Планируйте день, отслеживайте прогресс и&nbsp;забудьте про
+          хаос&nbsp;&mdash; всё в&nbsp;одном планере
         </p>
-
-        <div className={styles.price}>
-          <span className={styles.current}>790 ₽</span>
-          <span className={styles.old}>1 290 ₽</span>
-        </div>
 
         <div className={styles.features}>
           <h3>Что входит в ваш планер</h3>
@@ -31,6 +29,11 @@ const BuySection: React.FC = () => {
             <li>Автоматические расчёты</li>
             <li>Работа на ПК и телефоне</li>
           </ul>
+        </div>
+
+        <div className={styles.price}>
+          <span className={styles.current}>590 ₽</span>
+          <span className={styles.old}>1 090 ₽</span>
         </div>
 
         <button className={styles.button}>Перейти к покупке</button>

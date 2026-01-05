@@ -13,13 +13,17 @@ const ProductInfo: React.FC = () => {
     <section id="product" className={styles.product}>
       <div className={styles.content}>
         <h2 className={styles.title}>
-          Всё для достижения результата в&nbsp;одном месте
+          Всё для достижения вашего результата в&nbsp;одном месте
         </h2>
         <p className={styles.text}>
-          Structura&nbsp;&mdash; это ваша личная система в&nbsp;формате
-          Google-таблицы: все цели, сроки и&nbsp;прогресс в&nbsp;одном месте,
-          с&nbsp;наглядными графиками и&nbsp;полным ощущением контроля над
-          результатом.
+          Structura&nbsp;&mdash; это личная система планирования в&nbsp;формате
+          Google-таблицы, которая превращает хаос задач в&nbsp;чёткий план
+          действий. Все цели, приоритеты, дедлайны и&nbsp;прогресс собраны
+          в&nbsp;одном месте, автоматически считаются и&nbsp;отображаются
+          в&nbsp;наглядных графиках. Вы&nbsp;в&nbsp;любой момент видите, куда
+          уходит время, что действительно важно сейчас и&nbsp;как
+          вы&nbsp;двигаетесь к&nbsp;результату&nbsp;&mdash; спокойно, структурно
+          и&nbsp;под полным контролем.
         </p>
       </div>
 
@@ -58,8 +62,8 @@ const ProductInfo: React.FC = () => {
       </div>
 
       <div className={styles.price}>
-        <span className={styles.current}>790 ₽</span>
-        <span className={styles.old}>1 290 ₽</span>
+        <span className={styles.current}>590 ₽</span>
+        <span className={styles.old}>1 090 ₽</span>
       </div>
 
       <button className={styles.buyButton}>Купить планер</button>

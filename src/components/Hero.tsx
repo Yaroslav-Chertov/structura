@@ -17,15 +17,20 @@ const Hero: React.FC = () => {
       <h1 className={styles.title}>Structura</h1>
       <h2 className={styles.subtitle}>Из хаоса — в систему</h2>
       <p className={styles.description}>
-        Планер, который помогает разложить цели по&nbsp;шагам, отслеживать
-        прогресс и&nbsp;каждый день ясно понимать, на&nbsp;чём стоит
-        сфокусироваться сейчас.
+        Ваш персональный планер, который превращает цели в&nbsp;чёткий план
+        действий: разбивает задачи на&nbsp;шаги, отслеживает прогресс
+        и&nbsp;каждый день показывает, на&nbsp;чём действительно стоит
+        сосредоточиться, чтобы достигать результатов без стресса.
       </p>
 
       <div className={styles.price}>
-        <span className={styles.current}>790 ₽</span>
-        <span className={styles.old}>1 290 ₽</span>
+        <span className={styles.current}>590 ₽</span>
+        <span className={styles.old}>1 090 ₽</span>
       </div>
+
+      <p className={styles.note}>
+        Доступ сразу после оплаты • Работает в Google Таблицах
+      </p>
 
       <div className={styles.buttonGroup}>
         <button className={styles.button}>Купить</button>

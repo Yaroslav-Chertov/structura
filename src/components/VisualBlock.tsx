@@ -27,8 +27,8 @@ const VisualBlock: React.FC = () => {
   return (
     <section className={styles.visualBlock} ref={ref}>
       <h2 className={styles.title}>
-        Весь ваш день в одной системе. Всегда ясно, что делать дальше и какой
-        прогресс.
+        Все ваши цели под контролем и&nbsp;в&nbsp;одной системе&nbsp;&mdash;
+        забудьте про тревогу
       </h2>
       <div
         className={styles.imageWrapper}
