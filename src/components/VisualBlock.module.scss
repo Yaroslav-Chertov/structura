@@ -1,0 +1,52 @@
+@use "../styles/variables" as var;
+
+.visualBlock {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 20px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .imageWrapper {
+    width: 100%;
+    max-width: 1200px;
+    transition: transform 0.3s ease-out;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: block;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .visualBlock {
+    height: 400px;
+
+    .title {
+      font-size: 1.5rem;
+    }
+
+    .imageWrapper {
+      max-width: 90%;
+    }
+  }
+}

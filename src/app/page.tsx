@@ -1,6 +1,8 @@
 import Hero from "../components/Hero";
 import ProductInfo from "@/components/ProductInfo";
 import Advantages from "@/components/Advantages";
+import VisualBlock from "@/components/VisualBlock";
+import Reviews from "@/components/Reviews";
 import BuySection from "@/components/BuySection";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -11,6 +13,8 @@ export default function Page() {
       <Hero />
       <ProductInfo />
       <Advantages />
+      <VisualBlock />
+      <Reviews />
       <BuySection />
       <FAQ />
       <Footer />

@@ -13,7 +13,7 @@ const ProductInfo: React.FC = () => {
     <section id="product" className={styles.product}>
       <div className={styles.content}>
         <h2 className={styles.title}>
-          Всё для фокуса и&nbsp;результата&nbsp;&mdash; в&nbsp;одном месте
+          Всё для достижения результата в&nbsp;одном месте
         </h2>
         <p className={styles.text}>
           Structura&nbsp;&mdash; это ваша личная система в&nbsp;формате

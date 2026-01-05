@@ -31,6 +31,20 @@ const Footer: React.FC = () => {
           </a>
         </div>
       </div>
+
+      <div className={styles.developer}>
+        <p>
+          Сайт разработал{" "}
+          <a
+            href="https://github.com/Yaroslav-Chertov"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yaroslav Chertov
+          </a>
+        </p>
+      </div>
+
       <div className={styles.copy}>
         <p>© {new Date().getFullYear()} Все права защищены.</p>
       </div>
