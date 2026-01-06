@@ -103,6 +103,16 @@
   margin-top: 18px;
   font-size: 0.85rem;
   opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.googleIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  transform: translateY(1px);
 }
 
 @media (max-width: 600px) {

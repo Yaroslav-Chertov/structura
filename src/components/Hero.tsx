@@ -1,19 +1,21 @@
 import React from "react";
 import styles from "./Hero.module.scss";
-import logo from "../public/logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero: React.FC = () => {
   return (
     <section className={styles.hero}>
-      <Image
-        src="/hero-logo.png"
-        alt="Structura Logo"
-        width={120}
-        height={120}
-        className={styles.logo}
-        priority={true}
-      />
+      <Link href="/" className={styles.logoLink}>
+        <Image
+          src="/hero-logo.png"
+          alt="Structura Logo"
+          width={120}
+          height={120}
+          className={styles.logo}
+          priority={true}
+        />
+      </Link>
       <h1 className={styles.title}>Structura</h1>
       <h2 className={styles.subtitle}>Из хаоса — в систему</h2>
       <p className={styles.description}>
@@ -30,6 +32,11 @@ const Hero: React.FC = () => {
 
       <p className={styles.note}>
         Доступ сразу после оплаты • Работает в Google Таблицах
+        <img
+          src="/google-sheets.png"
+          alt="Google Sheets"
+          className={styles.googleIcon}
+        />
       </p>
 
       <div className={styles.buttonGroup}>

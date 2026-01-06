@@ -11,8 +11,7 @@ const BuySection: React.FC = () => {
           Превратите цели в результат уже сегодня
         </h2>
         <p className={styles.subtitle}>
-          Планируйте день, отслеживайте прогресс и&nbsp;забудьте про
-          хаос&nbsp;&mdash; всё в&nbsp;одном планере
+          Планируйте день, отслеживайте прогресс и&nbsp;забудьте про хаос
         </p>
 
         <div className={styles.features}>
@@ -40,6 +39,11 @@ const BuySection: React.FC = () => {
 
         <p className={styles.note}>
           Доступ сразу после оплаты • Работает в Google Таблицах
+          <img
+            src="/google-sheets.png"
+            alt="Google Sheets"
+            className={styles.googleIcon}
+          />
         </p>
       </div>
     </section>

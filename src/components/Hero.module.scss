@@ -69,9 +69,20 @@
 }
 
 .note {
+  margin-top: 18px;
   font-size: 0.85rem;
-  opacity: 0.85;
   color: #e0e7ff;
+  opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.googleIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  transform: translateY(1px);
 }
 
 .button {
