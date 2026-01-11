@@ -18,12 +18,12 @@ const ProductInfo: React.FC = () => {
         <p className={styles.text}>
           Structura&nbsp;&mdash; это личная система планирования в&nbsp;формате
           Google-таблицы, которая превращает хаос задач в&nbsp;чёткий план
-          действий. Все цели, приоритеты, дедлайны и&nbsp;прогресс собраны
-          в&nbsp;одном месте, автоматически считаются и&nbsp;отображаются
-          в&nbsp;наглядных графиках. Вы&nbsp;в&nbsp;любой момент видите, куда
-          уходит время, что действительно важно сейчас и&nbsp;как
-          вы&nbsp;двигаетесь к&nbsp;результату&nbsp;&mdash; спокойно, структурно
-          и&nbsp;под полным контролем.
+          действий. Все цели, приоритеты и&nbsp;прогресс собраны в&nbsp;одном
+          месте, автоматически считаются и&nbsp;отображаются в&nbsp;наглядных
+          графиках. Вы&nbsp;в&nbsp;любой момент видите, куда уходит время, что
+          действительно важно сейчас и&nbsp;как вы&nbsp;двигаетесь
+          к&nbsp;результату&nbsp;&mdash; спокойно, структурно и&nbsp;под полным
+          контролем.
         </p>
       </div>
 
@@ -36,13 +36,13 @@ const ProductInfo: React.FC = () => {
             loop
           >
             <SwiperSlide>
-              <img src="/screens/screen-1.png" alt="Цели и чеклисты" />
+              <img src="/screens/screen-1.png" alt="Скриншот планер" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="/screens/screen-2.png" alt="Прогресс и аналитика" />
+              <img src="/screens/screen-2.png" alt="Скриншот планер" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="/screens/screen-3.png" alt="Дневник и привычки" />
+              <img src="/screens/screen-3.png" alt="Скриншот планер" />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -50,7 +50,7 @@ const ProductInfo: React.FC = () => {
         <div className={styles.features}>
           <h3>Что входит в планер</h3>
           <ul>
-            <li>Цели недели с чек-листами и приоритетами</li>
+            <li>Цели недели с чек-листами</li>
             <li>Ежедневные задачи по дням</li>
             <li>Прогресс дня и недели (диаграммы)</li>
             <li>Трекер привычек и продуктивности</li>

@@ -4,23 +4,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px 20px 20px;
+  padding: 40px 20px 20px;
   text-align: center;
-  background: linear-gradient(180deg, #4f46e5 0%, #8b5cf6 40%, #ffffff 100%);
+  background: linear-gradient(180deg, #4f46e5 0%, #8b5cf6 45%, #ffffff 100%);
+}
+
+.logoLink {
+  display: inline-flex;
+  margin-bottom: 20px;
 }
 
 .logo {
   width: 120px;
   height: auto;
-  margin-bottom: 20px;
 }
 
 .title {
   font-size: 6rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 8px;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .subtitle {
@@ -33,46 +37,37 @@
 .description {
   font-size: 1.1rem;
   color: #f3f4f6;
-  max-width: 740px;
-  margin-bottom: 10px;
-  line-height: 1.6;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.buttonGroup {
-  display: flex;
-  gap: 16px;
-  margin-top: 20px;
-  width: 740px;
+  max-width: 760px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .price {
-  margin: 20px 0 0;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-size: 2rem;
   font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
 
   .current {
     color: #ffffff;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   }
 
   .old {
-    color: #c7d2e2;
-    text-decoration: line-through;
-    font-weight: 500;
     font-size: 1.2rem;
+    font-weight: 500;
+    color: #c7d2fe;
+    text-decoration: line-through;
   }
 }
 
 .note {
-  margin-top: 18px;
+  margin-top: 14px;
   font-size: 0.85rem;
   color: #e0e7ff;
-  opacity: 0.85;
+  opacity: 0.9;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -85,100 +80,85 @@
   transform: translateY(1px);
 }
 
-.button {
+.buttonGroup {
+  margin-top: 26px;
+  display: flex;
+  gap: 16px;
   width: 100%;
-  max-width: 400px;
+  max-width: 760px;
+}
+
+.button {
+  flex: 1;
   padding: 14px 0;
-  margin-top: 10px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  background-color: var.$primary-color;
-  color: #fff;
+  background-color: #ffffff;
+  color: var.$primary-color;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
-  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
-  }
-
-  &:active {
-    transform: translateY(0);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
   }
 }
 
 .buttonOutline {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px 0;
-  margin-top: 10px;
-  font-size: 1.1rem;
+  flex: 1;
+  padding: 14px 0;
+  font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  background-color: transparent;
-  color: #e0e7ff;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s;
-  background-clip: padding-box;
+  color: #ffffff;
+  border-radius: 14px;
   position: relative;
-  z-index: 0;
+  z-index: 1;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
+    inset: 0;
     border-radius: 14px;
-    background: linear-gradient(90deg, #b5b1f4, #8b5cf6);
+    padding: 2px;
+    background: linear-gradient(90deg, #c7d2fe, #a78bfa);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     z-index: -1;
   }
 
   &:hover {
-    color: var.$primary-color;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
-  }
-
-  &:active {
-    transform: translateY(0);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
   }
 }
 
-.videoWrapper {
-  margin-top: 30px;
+.videoSection {
+  margin-top: 48px;
   width: 100%;
-  max-width: 740px;
-
-  video {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
 }
 
-@media (max-width: 600px) {
-  .button {
-    font-size: 1rem;
-    margin-top: 0;
-  }
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .buttonOutline {
-    font-size: 1rem;
-    margin-top: 0;
-  }
-
-  .buttonOutline .title {
-    font-size: 2.5rem;
-  }
-
+@media (max-width: 768px) {
   .title {
     font-size: 4rem;
   }
@@ -193,8 +173,10 @@
 
   .buttonGroup {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+  }
+
+  .videoSection {
+    margin-top: 36px;
+    border-radius: 16px;
   }
 }

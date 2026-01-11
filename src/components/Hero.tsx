@@ -19,8 +19,8 @@ const Hero: React.FC = () => {
       <h1 className={styles.title}>Structura</h1>
       <h2 className={styles.subtitle}>Из хаоса — в систему</h2>
       <p className={styles.description}>
-        Ваш персональный планер, который превращает цели в&nbsp;чёткий план
-        действий: разбивает задачи на&nbsp;шаги, отслеживает прогресс
+        Ваш персональный планер на неделю, который превращает цели в&nbsp;чёткий
+        план действий: разбивает задачи на&nbsp;шаги, отслеживает прогресс
         и&nbsp;каждый день показывает, на&nbsp;чём действительно стоит
         сосредоточиться, чтобы достигать результатов без стресса.
       </p>
@@ -45,8 +45,16 @@ const Hero: React.FC = () => {
           Подробнее
         </a>
       </div>
-      <div className={styles.videoWrapper}>
-        <video src="/video/demo.mp4" controls className={styles.video} />
+      <div className={styles.videoSection}>
+        <video
+          src="/video/demo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className={styles.video}
+        />
       </div>
     </section>
   );
