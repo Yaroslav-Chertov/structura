@@ -1,7 +1,7 @@
 @use "../styles/variables" as var;
 
 .reviews {
-  padding: 80px 20px 20px ;
+  padding: 80px 20px 20px;
   background: #ffffff;
   text-align: center;
 }
@@ -26,17 +26,19 @@
   border-radius: 20px;
   padding: 30px 26px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   text-align: left;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 30px 60px rgba(79, 70, 229, 0.15);
+    box-shadow: 0 30px 60px rgba(70, 131, 229, 0.15);
   }
 }
 
 .stars {
-  color: #fbbf24; // золотые звёзды
+  color: #fbbf24;
   font-size: 1.2rem;
   margin-bottom: 14px;
 }
@@ -51,7 +53,7 @@
 .author {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #4f46e5;
+  color: #0465dc;
 }
 
 @media (min-width: 768px) {

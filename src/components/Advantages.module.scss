@@ -33,13 +33,15 @@
   border-radius: 20px;
   padding: 30px 26px 36px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 30px 60px rgba(79, 70, 229, 0.15);
+    box-shadow: 0 30px 60px rgba(64, 151, 237, 0.15);
   }
 }
 
@@ -53,7 +55,7 @@
   text-transform: uppercase;
   border-radius: 999px;
   background: rgba(79, 70, 229, 0.1);
-  color: #4f46e5;
+  color: #0465dc;
 }
 
 .title {

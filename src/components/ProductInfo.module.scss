@@ -57,7 +57,7 @@
         content: "✓";
         position: absolute;
         left: 0;
-        color: #4f46e5;
+        color: #468ee5;
         font-weight: 700;
       }
     }
@@ -66,7 +66,7 @@
 
 .price {
   margin: 20px 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   display: flex;
   justify-content: center;
@@ -74,11 +74,11 @@
   gap: 16px;
 
   .current {
-    color: #4f46e5;
+    color: #000000;
   }
 
   .old {
-    color: #9ca3af;
+    color: #747474;
     text-decoration: line-through;
     font-weight: 500;
     font-size: 1.2rem;
@@ -92,15 +92,17 @@
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 14px;
-  background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+  background: linear-gradient(90deg, #0465dc, #9bc2f7);
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+    box-shadow: 0 10px 25px rgba(70, 123, 229, 0.35);
   }
 }
 

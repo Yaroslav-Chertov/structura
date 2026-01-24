@@ -6,7 +6,7 @@
   align-items: center;
   padding: 40px 20px 20px;
   text-align: center;
-  background: linear-gradient(180deg, #4f46e5 0%, #8b5cf6 45%, #ffffff 100%);
+  background: linear-gradient(180deg, #0465dc 0%, #9bc2f7 45%, #ffffff 100%);
 }
 
 .logoLink {
@@ -29,14 +29,14 @@
 
 .subtitle {
   font-size: 3rem;
-  color: #e0e7ff;
+  color: #f1f4ff;
   margin-bottom: 10px;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .description {
   font-size: 1.1rem;
-  color: #f3f4f6;
+  color: #ffffff;
   max-width: 760px;
   line-height: 1.65;
   margin-bottom: 20px;
@@ -48,17 +48,17 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
 
   .current {
-    color: #ffffff;
+    color: #000000;
   }
 
   .old {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #c7d2fe;
+    color: #747474;
     text-decoration: line-through;
   }
 }
@@ -66,7 +66,7 @@
 .note {
   margin-top: 14px;
   font-size: 0.85rem;
-  color: #e0e7ff;
+  color: #747474;
   opacity: 0.9;
   display: inline-flex;
   align-items: center;
@@ -94,11 +94,13 @@
   font-size: 1.05rem;
   font-weight: 600;
   background-color: #ffffff;
-  color: var.$primary-color;
+  color: #000000;
   border: none;
   border-radius: 14px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -112,14 +114,16 @@
   font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  color: #ffffff;
+  color: #000000;
   border-radius: 14px;
   position: relative;
   z-index: 1;
   overflow: hidden;
   border: 2px solid transparent;
   background: transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &::before {
     content: "";
@@ -127,8 +131,9 @@
     inset: 0;
     border-radius: 14px;
     padding: 2px;
-    background: linear-gradient(90deg, #c7d2fe, #a78bfa);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    background: linear-gradient(90deg, #ffffff, #0465dc);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
