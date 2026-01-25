@@ -44,6 +44,9 @@ const ProductInfo: React.FC = () => {
             <SwiperSlide>
               <img src="/screens/screen-3.png" alt="Скриншот планер" />
             </SwiperSlide>
+                  <SwiperSlide>
+              <img src="/screens/screen-4.png" alt="Скриншот планер" />
+            </SwiperSlide>
           </Swiper>
         </div>
 
