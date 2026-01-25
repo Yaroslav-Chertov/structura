@@ -44,8 +44,11 @@ const ProductInfo: React.FC = () => {
             <SwiperSlide>
               <img src="/screens/screen-3.png" alt="Скриншот планер" />
             </SwiperSlide>
-                  <SwiperSlide>
+            <SwiperSlide>
               <img src="/screens/screen-4.png" alt="Скриншот планер" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/screens/screen-5.png" alt="Скриншот планер" />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -60,6 +63,7 @@ const ProductInfo: React.FC = () => {
             <li>Аналитика недели и средний прогресс</li>
             <li>Дневник состояния и мыслей</li>
             <li>Автоматические расчёты и графики</li>
+            <li className={styles.bonus}>Бонус: Финансовый планер &#x1F4B0;</li>
           </ul>
         </div>
       </div>

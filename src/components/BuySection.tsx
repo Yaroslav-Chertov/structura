@@ -25,6 +25,7 @@ const BuySection: React.FC = () => {
             <li>Аналитика недели</li>
             <li>Автоматические расчёты</li>
             <li>Работа на ПК и телефоне</li>
+            <li className={styles.bonus}>Бонус: Финансовый планер &#x1F4B0;</li>
           </ul>
         </div>
 
