@@ -13,8 +13,8 @@ const Footer: React.FC = () => {
           <p>г. Санкт-Петербург</p>
           <p>
             Email:{" "}
-            <a href="mailto:structura_planer@gmail.com">
-              structura_planer@gmail.com
+            <a href="mailto:structura.planer@yandex.com">
+              structura.planer@yandex.com
             </a>
           </p>
         </div>
