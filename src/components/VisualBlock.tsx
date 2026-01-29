@@ -14,7 +14,7 @@ const VisualBlock: React.FC = () => {
         const windowHeight = window.innerHeight;
         const scrollProgress = Math.min(
           Math.max((windowHeight - top) / windowHeight, 0),
-          1
+          1,
         );
         setOffset(scrollProgress * 30);
       }

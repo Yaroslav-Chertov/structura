@@ -1,11 +1,36 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
 const Hero: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const cloudTransform = {
+    transform: `translateY(${-scrollY * 0.25}px) scale(${1 + scrollY * 0.0003})`,
+  };
+
   return (
     <section className={styles.hero}>
+      <img
+        src="/clouds.png"
+        alt=""
+        className={styles.clouds}
+        style={cloudTransform}
+        aria-hidden
+      />
+
       <Link href="/" className={styles.logoLink}>
         <Image
           src="/hero-logo.png"
@@ -13,16 +38,16 @@ const Hero: React.FC = () => {
           width={120}
           height={120}
           className={styles.logo}
-          priority={true}
+          priority
         />
       </Link>
+
       <h1 className={styles.title}>Structura</h1>
       <h2 className={styles.subtitle}>Из хаоса — в систему</h2>
+
       <p className={styles.description}>
-        Ваш персональный планер на неделю, который превращает цели в&nbsp;чёткий
-        план действий: разбивает задачи на&nbsp;шаги, отслеживает прогресс
-        и&nbsp;каждый день показывает, на&nbsp;чём действительно стоит
-        сосредоточиться, чтобы достигать результатов без стресса.
+        Ваш персональный планер на неделю, который превращает цели в чёткий план
+        действий и помогает сохранять фокус без стресса.
       </p>
 
       <div className={styles.price}>
@@ -45,6 +70,7 @@ const Hero: React.FC = () => {
           Подробнее
         </a>
       </div>
+
       <div className={styles.videoSection}>
         <video
           src="/video/demo.mp4"
