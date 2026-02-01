@@ -1,52 +1,79 @@
-@use "../styles/variables" as var;
+.visualSection {
+  padding: 80px 20px;
+  background: #ffffff;
+}
 
-.visualBlock {
-  position: relative;
-  height: 600px;
-  overflow: hidden;
-  background: #f9fafb;
+.banner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+  border-radius: 32px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+
+  background: linear-gradient(135deg, #0465dc 0%, #9bc2f7 100%);
+
+  box-shadow: 0 30px 60px rgba(70, 123, 229, 0.25);
+}
+
+.content {
+  color: #ffffff;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 460px;
+  opacity: 0.95;
+}
+
+.imageWrapper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .title {
-    position: absolute;
-    z-index: 10;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #ffffff;
-    max-width: 800px;
-    margin: 0 20px;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .imageWrapper {
-    width: 100%;
-    max-width: 1200px;
-    transition: transform 0.3s ease-out;
-
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      display: block;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
   }
 }
 
+/* 📱 Мобильная версия */
 @media (max-width: 768px) {
-  .visualBlock {
-    height: 400px;
+  .banner {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    border-radius: 24px;
+    text-align: center;
+  }
 
-    .title {
-      font-size: 1.5rem;
-    }
+  .title {
+    font-size: 1.6rem;
+  }
 
-    .imageWrapper {
-      max-width: 90%;
+  .text {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  .imageWrapper {
+    margin-top: 20px;
+
+    img {
+      max-width: 260px;
     }
   }
 }
