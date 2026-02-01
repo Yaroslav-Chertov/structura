@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className={styles.top}>
         <div className={styles.info}>
           <p>Самозанятая Чертова Г. В.</p>
-          <p>ИНН 123456789100</p>
+          <p>ИНН 720415928447</p>
           <p>г. Санкт-Петербург</p>
           <p>
             Email:{" "}
