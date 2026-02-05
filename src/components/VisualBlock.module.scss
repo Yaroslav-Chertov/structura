@@ -8,14 +8,11 @@
   margin: 0 auto;
   padding: 60px;
   border-radius: 32px;
-
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 40px;
-
   background: linear-gradient(135deg, #0465dc 0%, #9bc2f7 100%);
-
   box-shadow: 0 30px 60px rgba(70, 123, 229, 0.25);
 }
 
@@ -61,7 +58,7 @@
   }
 
   .title {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
   }
 
   .text {

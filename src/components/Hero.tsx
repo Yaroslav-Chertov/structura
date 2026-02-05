@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
       </p>
 
       <div className={styles.price}>
-        <span className={styles.current}>590 ₽</span>
+        <span className={styles.current}>490 ₽</span>
         <span className={styles.old}>1 090 ₽</span>
       </div>
 
