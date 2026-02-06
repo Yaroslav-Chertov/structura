@@ -1,6 +1,6 @@
 .visualSection {
   padding: 80px 20px;
-  background: #ffffff;
+  background: #faf9fb;
 }
 
 .banner {
@@ -48,7 +48,6 @@
   }
 }
 
-/* 📱 Мобильная версия */
 @media (max-width: 768px) {
   .banner {
     grid-template-columns: 1fr;
