@@ -9,13 +9,11 @@ const VisualBlock: React.FC = () => {
       <div className={styles.banner}>
         <div className={styles.content}>
           <h2 className={styles.title}>
-            Все ваши цели под&nbsp;контролем
-            <br />
-            и&nbsp;в&nbsp;одной системе
+            Все цели под контролем&nbsp;&mdash; в&nbsp;одной системе
           </h2>
           <p className={styles.text}>
-            Structura помогает превратить хаос в&nbsp;понятный план
-            и&nbsp;снизить тревожность уже с&nbsp;первой недели
+            Structura превращает хаос задач в&nbsp;чёткий план и&nbsp;даёт
+            ощущение прогресса уже с&nbsp;первой недели.
           </p>
         </div>
 

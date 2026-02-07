@@ -6,21 +6,20 @@ const Advantages: React.FC = () => {
     <section className={styles.advantages}>
       <h2 className={styles.sectionTitle}>Кому подойдёт планер Structura</h2>
       <p className={styles.sectionSubtitle}>
-        Если вам важно держать фокус, видеть прогресс и&nbsp;не&nbsp;теряться
-        в&nbsp;задачах &mdash; вы&nbsp;точно узнаете себя в&nbsp;одном
-        из&nbsp;этих сценариев
+        Если вам важно держать фокус, видеть реальный прогресс
+        и&nbsp;не&nbsp;тонуть в&nbsp;задачах&nbsp;&mdash; скорее всего,
+        вы&nbsp;узнаете себя ниже.
       </p>
 
       <div className={styles.grid}>
         <div className={styles.card}>
           <span className={styles.tag}>Цели</span>
-          <h3 className={styles.title}>Для целей и повседневных задач</h3>
+          <h3 className={styles.title}>Цели и повседневные задачи</h3>
           <p className={styles.text}>
             Когда нужно держать под контролем и&nbsp;большие цели,
-            и&nbsp;ежедневные дела. Structura помогает разложить всё
-            по&nbsp;полочкам, отслеживать прогресс, видеть реальную картину
-            в&nbsp;цифрах и&nbsp;графиках &mdash; без ощущения перегруза
-            и&nbsp;хаоса.
+            и&nbsp;рутину. Structura помогает разложить всё по&nbsp;полочкам,
+            видеть приоритеты и&nbsp;отслеживать прогресс в&nbsp;цифрах
+            и&nbsp;графиках&nbsp;&mdash; без перегруза и&nbsp;хаоса.
           </p>
           <img
             src="/advantages/goals.jpg"
@@ -30,13 +29,13 @@ const Advantages: React.FC = () => {
         </div>
 
         <div className={styles.card}>
-          <span className={styles.tag}>Обучение</span>
+          <span className={styles.tag}>Обучение и развитие</span>
           <h3 className={styles.title}>Для обучения и развития навыков</h3>
           <p className={styles.text}>
-            Если вы&nbsp;изучаете иностранный язык, программирование, дизайн или
-            любую новую сферу. Планер помогает выстроить системный процесс:
-            ставить цели, фиксировать занятия, видеть регулярность и&nbsp;не
-            забрасывать обучение через пару недель.
+            Если вы&nbsp;учите язык, осваиваете новую профессию или прокачиваете
+            навык. Планер помогает выстроить системный процесс: ставить цели,
+            фиксировать занятия, видеть регулярность и&nbsp;не&nbsp;бросать
+            через пару недель.
           </p>
           <img
             src="/advantages/education.jpg"
@@ -46,13 +45,13 @@ const Advantages: React.FC = () => {
         </div>
 
         <div className={styles.card}>
-          <span className={styles.tag}>Работа и жизнь</span>
+          <span className={styles.tag}>Работа, проекты и жизнь</span>
           <h3 className={styles.title}>Для занятых людей и фрилансеров</h3>
           <p className={styles.text}>
-            Когда много задач, идей и&nbsp;ответственности&nbsp;&mdash; работа,
-            проекты, встречи, задачи, финансы, личные дела. Structura становится
-            вашим помошником, где всё структурировано, понятно и&nbsp;всегда под
-            рукой&nbsp;&mdash; на телефоне и&nbsp;на&nbsp;компьютере.
+            Для занятых людей, фрилансеров и&nbsp;тех, у&nbsp;кого
+            &laquo;слишком много всего&raquo;. Задачи, проекты и&nbsp;личные
+            дела собраны в&nbsp;одной системе&nbsp;&mdash; всегда под рукой,
+            на&nbsp;телефоне и&nbsp;компьютере, без ощущения постоянной гонки.
           </p>
           <img
             src="/advantages/freelancing.jpg"

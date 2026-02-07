@@ -6,6 +6,7 @@ import Steps from "@/components/Steps";
 import Reviews from "@/components/Reviews";
 import BuySection from "@/components/BuySection";
 import FAQ from "@/components/FAQ";
+import ContactUs from "@/components/ContactUs";
 import Footer from "@/components/Footer";
 
 export default function Page() {
@@ -14,11 +15,12 @@ export default function Page() {
       <Hero />
       <ProductInfo />
       <Advantages />
-      <VisualBlock />
       <Steps />
+      <VisualBlock />
       <Reviews />
       <BuySection />
       <FAQ />
+      <ContactUs />
       <Footer />
     </main>
   );
