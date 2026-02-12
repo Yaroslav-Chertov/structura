@@ -18,6 +18,19 @@ const Hero: React.FC = () => {
               целям
             </p>
 
+            {/* Видео для мобилки */}
+            <div className={styles.videoWrapperMobile}>
+              <video
+                src="/video/demo.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className={styles.video}
+              />
+            </div>
+
             <div className={styles.price}>
               <span className={styles.current}>490 ₽</span>
               <span className={styles.old}>1 090 ₽</span>
@@ -34,8 +47,8 @@ const Hero: React.FC = () => {
 
             <div className={styles.buttonGroup}>
               <button className={styles.button}>Купить</button>
-              <a href="#advantages" className={styles.buttonOutline}>
-                Кому подойдет планер
+              <a href="#product" className={styles.buttonOutline}>
+                О планере
               </a>
             </div>
           </div>
