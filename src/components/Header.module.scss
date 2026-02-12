@@ -1,0 +1,129 @@
+@use "../styles/variables" as var;
+
+.header {
+  width: 100%;
+  background: #faf9fb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0465dc;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(90deg, #0465dc, #9bc2f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.05) rotate(-2deg);
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+
+  a {
+    text-decoration: none;
+    color: #111827;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #0465dc;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 999;
+
+  span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #111827;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.openLine1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.openLine2 {
+  opacity: 0;
+}
+
+.openLine3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  background: #ffffff;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 998;
+
+  a {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
+    color: #111827;
+    text-decoration: none;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: #f9fafb;
+      color: #0465dc;
+    }
+  }
+
+  &.open {
+    display: flex;
+  }
+}

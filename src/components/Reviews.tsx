@@ -36,7 +36,7 @@ const reviews = [
 
 const Reviews: React.FC = () => {
   return (
-    <section className={styles.reviews}>
+    <section id="reviews" className={styles.reviews}>
       <h2 className={styles.title}>Что говорят пользователи</h2>
 
       <div className={styles.grid}>

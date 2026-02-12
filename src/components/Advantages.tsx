@@ -3,7 +3,7 @@ import styles from "./Advantages.module.scss";
 
 const Advantages: React.FC = () => {
   return (
-    <section className={styles.advantages}>
+    <section id="advantages" className={styles.advantages}>
       <h2 className={styles.sectionTitle}>Кому подойдёт планер Structura</h2>
       <p className={styles.sectionSubtitle}>
         Если вам важно держать фокус, видеть реальный прогресс

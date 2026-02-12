@@ -34,7 +34,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section className={styles.faq}>
+    <section id="faq" className={styles.faq}>
       <h2 className={styles.title}>Часто задаваемые вопросы</h2>
       <div className={styles.list}>
         {faqs.map((item, index) => (

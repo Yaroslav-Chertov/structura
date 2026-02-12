@@ -5,7 +5,7 @@ import styles from "./ContactUs.module.scss";
 
 const ContactUs: React.FC = () => {
   return (
-    <section className={styles.contactUs}>
+    <section id="contact" className={styles.contactUs}>
       <h2 className={styles.title}>Не нашли ответ?</h2>
       <p className={styles.subtitle}>
         Напишите нам, и мы поможем вам быстро разобраться с планером.
