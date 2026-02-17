@@ -22,7 +22,7 @@ const Advantages: React.FC = () => {
             и&nbsp;графиках&nbsp;&mdash; без перегруза и&nbsp;хаоса.
           </p>
           <img
-            src="/advantages/goals.jpg"
+            src="/advantages/goals.png"
             alt="Планирование целей и задач"
             className={styles.image}
           />
@@ -38,7 +38,7 @@ const Advantages: React.FC = () => {
             через пару недель.
           </p>
           <img
-            src="/advantages/education.jpg"
+            src="/advantages/education.png"
             alt="Обучение и развитие"
             className={styles.image}
           />
@@ -54,7 +54,7 @@ const Advantages: React.FC = () => {
             на&nbsp;телефоне и&nbsp;компьютере, без ощущения постоянной гонки.
           </p>
           <img
-            src="/advantages/freelancing.jpg"
+            src="/advantages/freelancing.png"
             alt="Удобно для занятых людей"
             className={styles.image}
           />
