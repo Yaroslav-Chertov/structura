@@ -5,7 +5,7 @@
 }
 
 .visualSection {
-  padding: 80px 20px;
+  padding: 50px 20px 50px;
   background: #fff;
 }
 
@@ -154,6 +154,10 @@
 }
 
 @media (max-width: 768px) {
+  .visualSection {
+    padding: 20px 20px 50px;
+  }
+
   .banner {
     grid-template-columns: 1fr;
     padding: 36px 24px;
