@@ -12,13 +12,16 @@ const Hero: React.FC = () => {
             <h1 className={styles.title}>Structura</h1>
             <h2 className={styles.subtitle}>Из хаоса — в систему</h2>
 
-            <p className={styles.description}>
-              Недельный планер, который наводит порядок в&nbsp;задачах, снижает
-              тревогу и&nbsp;даёт ощущение реального движения вперёд к вашим
-              целям
-            </p>
+            <div className={styles.descriptionBlock}>
+              <p className={styles.description}>
+                Недельный планер, который наводит порядок в&nbsp;задачах,
+                снижает тревогу и&nbsp;даёт ощущение реального движения вперёд к
+                вашим целям
+              </p>
 
-            {/* Видео для мобилки */}
+              <span className={styles.bonus}>Бонус: Финансовый планер 💰</span>
+            </div>
+
             <div className={styles.videoWrapperMobile}>
               <video
                 src="/video/demo.mp4"
