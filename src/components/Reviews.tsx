@@ -48,11 +48,14 @@ const Reviews: React.FC = () => {
                 alt={review.name}
                 className={styles.avatar}
               />
-              <div className={styles.stars}>★★★★★</div>
+
+              <div className={styles.meta}>
+                <span className={styles.author}>{review.name}</span>
+                <div className={styles.stars}>★★★★★</div>
+              </div>
             </div>
 
             <p className={styles.text}>{review.text}</p>
-            <span className={styles.author}>{review.name}</span>
           </div>
         ))}
       </div>

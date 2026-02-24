@@ -9,8 +9,7 @@ const Hero: React.FC = () => {
       <div className={styles.visualSection}>
         <div className={styles.banner}>
           <div className={styles.content}>
-            <h1 className={styles.title}>Structura</h1>
-            <h2 className={styles.subtitle}>Из хаоса — в систему</h2>
+            <h1 className={styles.title}>Из хаоса — в систему</h1>
 
             <div className={styles.descriptionBlock}>
               <p className={styles.description}>
@@ -18,8 +17,6 @@ const Hero: React.FC = () => {
                 снижает тревогу и&nbsp;даёт ощущение реального движения вперёд к
                 вашим целям
               </p>
-
-              <span className={styles.bonus}>Бонус: Финансовый планер 💰</span>
             </div>
 
             <div className={styles.videoWrapperMobile}>
