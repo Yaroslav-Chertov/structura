@@ -4,9 +4,7 @@ import styles from "./Steps.module.scss";
 const Steps: React.FC = () => {
   return (
     <section className={styles.steps}>
-      <h2 className={styles.title}>
-        Всего 3&nbsp;шага&nbsp;&mdash; и&nbsp;хаос превращается в&nbsp;порядок
-      </h2>
+      <h2 className={styles.title}>Всего 3&nbsp;шага</h2>
       <p className={styles.subtitle}>
         Без сложных настроек и лишних инструментов
       </p>
@@ -25,9 +23,8 @@ const Steps: React.FC = () => {
           <span className={styles.step}>02</span>
           <h3>Запишите цели</h3>
           <p>
-            Разложите задачи по&nbsp;дням и&nbsp;приоритетам&nbsp;&mdash; всё
-            уже готово, чтобы не&nbsp;тратить время на&nbsp;пустые листы
-            и&nbsp;сомнения.
+            Разложите задачи по&nbsp;дням и&nbsp;приоритетам всё уже готово,
+            чтобы сфокусироваться на&nbsp;целях.
           </p>
         </div>
 
@@ -35,8 +32,8 @@ const Steps: React.FC = () => {
           <span className={styles.step}>03</span>
           <h3>Следуйте системе</h3>
           <p>
-            Отмечайте выполненное и&nbsp;смотрите, как растёт прогресс. Голова
-            освобождается, а&nbsp;фокус остаётся.
+            Отмечайте выполненное и&nbsp;смотрите, как растёт прогресс. Тревога
+            и&nbsp;хаос уходят, а&nbsp;фокус остаётся.
           </p>
         </div>
       </div>
