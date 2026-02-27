@@ -31,7 +31,7 @@
   position: relative;
   background: #f9fafb;
   border-radius: 16px;
-  padding: 38px 30px 36px;
+  padding: 30px;
   text-align: left;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
   transition:
@@ -45,7 +45,7 @@
 
   h3 {
     font-size: 1.4rem;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: #111827;
   }
 
@@ -57,13 +57,13 @@
 }
 
 .step {
-  position: absolute;
   top: 18px;
-  right: 22px;
+  left: 22px;
+  margin-bottom: 14px;
   font-size: 3.2rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #0465dc;
-  opacity: 0.08;
+  opacity: 0.18;
 
   @media (max-width: 900px) {
     top: -12px;
@@ -112,6 +112,13 @@
 
   .card {
     text-align: center;
+  }
+
+  .step {
+    top: 18px;
+    left: 22px;
+    transform: none;
+    opacity: 0.22;
   }
 }
 

@@ -26,6 +26,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  align-items: stretch;
 }
 
 .card {
@@ -47,7 +48,7 @@
 
 .tag {
   align-self: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   padding: 6px 12px;
   font-size: 0.72rem;
   font-weight: 600;
@@ -61,11 +62,12 @@
 .title {
   font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: #111827;
 }
 
 .text {
+  margin-bottom: 10px;
   font-size: 1rem;
   line-height: 1.6;
   color: #4b5563;
@@ -78,6 +80,7 @@
   margin: 24px auto 0;
   object-fit: cover;
   border-radius: 16px;
+  margin-top: auto;
 }
 
 @media (min-width: 768px) {

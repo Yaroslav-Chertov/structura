@@ -81,7 +81,7 @@
   font-size: 1.9rem;
   font-weight: 700;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 16px;
 
@@ -98,6 +98,7 @@
 }
 
 .buyButton {
+  display: inline-block;
   max-width: 420px;
   padding: 16px 42px;
   font-size: 1.1rem;
@@ -140,6 +141,18 @@
   .features {
     flex: 1;
     margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .price {
+    justify-content: center;
+  }
+
+  .buyButton {
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0;
   }
 }
 

@@ -6,7 +6,7 @@ import styles from "./Footer.module.scss";
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.top}>
+      <div className={styles.container}>
         <div className={styles.info}>
           <p>Самозанятая Чертова Г. В.</p>
           <p>ИНН 720415928447</p>
@@ -17,6 +17,22 @@ const Footer: React.FC = () => {
               structura.planer@yandex.com
             </a>
           </p>
+        </div>
+
+        <div className={styles.bottom}>
+          <div className={styles.developer}>
+            Сайт разработал{" "}
+            <a
+              href="https://github.com/Yaroslav-Chertov"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Yaroslav Chertov
+            </a>
+          </div>
+          <div className={styles.copy}>
+            © {new Date().getFullYear()} Все права защищены.
+          </div>
         </div>
 
         <div className={styles.links}>
@@ -30,23 +46,6 @@ const Footer: React.FC = () => {
             Согласие на обработку персональных данных
           </a>
         </div>
-      </div>
-
-      <div className={styles.developer}>
-        <p>
-          Сайт разработал{" "}
-          <a
-            href="https://github.com/Yaroslav-Chertov"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Yaroslav Chertov
-          </a>
-        </p>
-      </div>
-
-      <div className={styles.copy}>
-        <p>© {new Date().getFullYear()} Все права защищены.</p>
       </div>
     </footer>
   );

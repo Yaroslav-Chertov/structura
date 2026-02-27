@@ -66,15 +66,15 @@ const ProductInfo: React.FC = () => {
             </li>
             <li className={styles.bonus}>Бонус: Финансовый планер &#x1F4B0;</li>
           </ul>
+
+          <div className={styles.price}>
+            <span className={styles.current}>490 ₽</span>
+            <span className={styles.old}>1 090 ₽</span>
+          </div>
+
+          <button className={styles.buyButton}>Купить планер</button>
         </div>
       </div>
-
-      <div className={styles.price}>
-        <span className={styles.current}>490 ₽</span>
-        <span className={styles.old}>1 090 ₽</span>
-      </div>
-
-      <button className={styles.buyButton}>Купить планер</button>
     </section>
   );
 };
