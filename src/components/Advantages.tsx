@@ -4,7 +4,7 @@ import styles from "./Advantages.module.scss";
 const Advantages: React.FC = () => {
   return (
     <section id="advantages" className={styles.advantages}>
-      <h2 className={styles.sectionTitle}>Кому подойдёт планер</h2>
+      <h2 className={styles.sectionTitle}>Кому подойдёт</h2>
       <p className={styles.sectionSubtitle}>
         Если вам важно держать фокус, видеть реальный прогресс
         и&nbsp;не&nbsp;тонуть в&nbsp;задачах&nbsp;&mdash; скорее всего,

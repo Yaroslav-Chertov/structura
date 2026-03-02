@@ -1,8 +1,8 @@
 @use "../styles/variables" as var;
 
 .contactUs {
-  padding: 40px 20px 50px;
-  background: #fff;
+  padding: 40px 20px 80px;
+  background: #faf9fb;
   text-align: center;
 }
 
@@ -55,15 +55,5 @@
 
   .subtitle {
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.6rem;
-  }
-
-  .subtitle {
-    font-size: 0.95rem;
   }
 }

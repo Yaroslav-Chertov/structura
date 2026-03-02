@@ -1,7 +1,7 @@
 @use "../styles/variables" as var;
 
 .reviews {
-  padding: 40px 20px 50px;
+  padding: 40px 20px 80px;
   background: #faf9fb;
   text-align: center;
 }
@@ -9,7 +9,7 @@
 .title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   color: #111827;
 }
 
@@ -18,11 +18,11 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 20px;
 }
 
 .card {
-  background: #f9fafb;
+  background: #fff;
   border-radius: 16px;
   padding: 30px 26px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
@@ -82,12 +82,18 @@
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 16px;
   }
 }
 
 @media (max-width: 600px) {
   .title {
     font-size: 1.9rem;
+    margin-bottom: 24px;
   }
 }

@@ -1,5 +1,5 @@
 .visualSection {
-  padding: 40px 20px 50px;
+  padding: 40px 20px 80px;
   background: #faf9fb;
 }
 
@@ -13,7 +13,6 @@
   align-items: center;
   gap: 40px;
   background: #0465dc;
-  box-shadow: 0 30px 60px rgba(70, 123, 229, 0.25);
 }
 
 .content {
@@ -49,6 +48,10 @@
 }
 
 @media (max-width: 768px) {
+  .visualSection {
+    padding: 40px 0 80px;
+  }
+
   .banner {
     grid-template-columns: 1fr;
     padding: 36px 24px;

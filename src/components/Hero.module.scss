@@ -1,12 +1,12 @@
 @use "../styles/variables" as var;
 
 .hero {
-  background: #fff;
+  background: #faf9fb;
 }
 
 .visualSection {
-  padding: 50px 20px 50px;
-  background: #fff;
+  padding: 50px 20px 80px;
+  background: #faf9fb;
 }
 
 .banner {
@@ -19,7 +19,6 @@
   align-items: center;
   gap: 40px;
   background: #0465dc;
-  box-shadow: 0 30px 60px rgba(70, 123, 229, 0.25);
 }
 
 .content {
@@ -71,16 +70,11 @@
 
 .note {
   font-size: 0.85rem;
-  display: inline-flex;
-  align-items: center;
   gap: 6px;
   margin-bottom: 24px;
   opacity: 0.95;
 
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 4px;
   }
 }
@@ -88,6 +82,8 @@
 .googleIcon {
   width: 16px;
   height: 16px;
+  margin-left: 4px;
+  vertical-align: middle;
 }
 
 .buttonGroup {
@@ -156,7 +152,7 @@
 
 @media (max-width: 768px) {
   .visualSection {
-    padding: 20px 20px 50px;
+    padding: 20px 0 50px;
   }
 
   .banner {

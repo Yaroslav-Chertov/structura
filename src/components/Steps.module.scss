@@ -1,7 +1,7 @@
 @use "../styles/variables" as var;
 
 .steps {
-  padding: 40px 20px 50px;
+  padding: 40px 20px 80px;
   background: #faf9fb;
   text-align: center;
 }
@@ -16,20 +16,20 @@
 .subtitle {
   font-size: 1.1rem;
   color: #6b7280;
-  margin-bottom: 52px;
+  margin-bottom: 40px;
 }
 
 .grid {
   max-width: 1200px;
-  margin: 0 auto 48px;
+  margin: 0 auto 32px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 20px;
 }
 
 .card {
   position: relative;
-  background: #f9fafb;
+  background: #fff;
   border-radius: 16px;
   padding: 30px;
   text-align: left;
@@ -107,7 +107,7 @@
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 
   .card {
