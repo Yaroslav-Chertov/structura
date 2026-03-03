@@ -1,7 +1,18 @@
+"use client";
+
 import React from "react";
 import styles from "./Reviews.module.scss";
 
-const reviews = [
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+type Review = {
+  name: string;
+  text: string;
+  avatar: string;
+};
+
+const reviews: Review[] = [
   {
     name: "Анна К.",
     text: "Наконец-то появился порядок в задачах. Стало понятно, что делать каждый день, а не просто список дел без конца :)",
@@ -24,7 +35,7 @@ const reviews = [
   },
   {
     name: "Екатерина В.",
-    text: "Планер помог навести порядок о в задачах. Всё логично и без лишнего.",
+    text: "Планер помог навести порядок в задачах. Всё логично и без лишнего.",
     avatar: "/avatars/avatar-5.png",
   },
   {
@@ -39,6 +50,30 @@ const Reviews: React.FC = () => {
     <section id="reviews" className={styles.reviews}>
       <h2 className={styles.title}>Что говорят пользователи</h2>
 
+      <div className={styles.mobileSlider}>
+        <Swiper spaceBetween={16} slidesPerView={1.15}>
+          {reviews.map((review, index) => (
+            <SwiperSlide key={index}>
+              <div className={styles.card}>
+                <div className={styles.header}>
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    className={styles.avatar}
+                  />
+                  <div className={styles.meta}>
+                    <span className={styles.author}>{review.name}</span>
+                    <div className={styles.stars}>★★★★★</div>
+                  </div>
+                </div>
+
+                <p className={styles.text}>{review.text}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
       <div className={styles.grid}>
         {reviews.map((review, index) => (
           <div key={index} className={styles.card}>
@@ -48,7 +83,6 @@ const Reviews: React.FC = () => {
                 alt={review.name}
                 className={styles.avatar}
               />
-
               <div className={styles.meta}>
                 <span className={styles.author}>{review.name}</span>
                 <div className={styles.stars}>★★★★★</div>
