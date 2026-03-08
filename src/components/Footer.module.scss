@@ -1,5 +1,5 @@
 .footer {
-  background: #0465dc;
+  background: #04675f;
   color: #fff;
   padding: 60px 20px 30px;
   font-family: Arial, Helvetica, sans-serif;
@@ -67,12 +67,16 @@
   margin: 0 auto;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
   opacity: 0.85;
+}
+
+.copy,
+.developer {
+  opacity: 0.7;
 }
 
 .developer a {

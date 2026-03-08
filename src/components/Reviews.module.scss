@@ -62,7 +62,7 @@
 .author {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #0465dc;
+  color: #04675f;
   line-height: 1.2;
 }
 
@@ -78,7 +78,7 @@
   color: #374151;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .mobileSlider {
     display: none;
   }
@@ -87,6 +87,7 @@
     display: grid;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }

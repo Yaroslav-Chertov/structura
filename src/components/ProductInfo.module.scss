@@ -26,8 +26,6 @@
   max-width: 700px;
   margin: 0 auto 10px;
   width: 100%;
-  overflow: hidden;
-  min-width: 0;
   border-radius: 16px;
 
   img {
@@ -63,7 +61,7 @@
         content: "✓";
         position: absolute;
         left: 0;
-        color: #468ee5;
+        color: #04675f;
         font-weight: 700;
       }
     }
@@ -103,7 +101,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 14px;
-  background: #0465dc;
+  background: #04675f;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -113,7 +111,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(70, 123, 229, 0.35);
+    box-shadow: 0 10px 25px rgb(217, 221, 221);
   }
 }
 
@@ -189,5 +187,11 @@
 
   .price {
     font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .product {
+    padding-bottom: 80px;
   }
 }

@@ -2,11 +2,6 @@
 
 import React from "react";
 import styles from "./ProductInfo.module.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
 
 const ProductInfo: React.FC = () => {
   return (
@@ -25,28 +20,7 @@ const ProductInfo: React.FC = () => {
 
       <div className={styles.main}>
         <div className={styles.slider}>
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            autoplay={{ delay: 3500 }}
-            pagination={{ clickable: true }}
-            loop
-          >
-            <SwiperSlide>
-              <img src="/screens/screen-1.png" alt="Скриншот планер" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/screens/screen-2.png" alt="Скриншот планер" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/screens/screen-3.png" alt="Скриншот планер" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/screens/screen-4.png" alt="Скриншот планер" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/screens/screen-5.png" alt="Скриншот планер" />
-            </SwiperSlide>
-          </Swiper>
+          <img src="/screens/screen.png" alt="Скриншот планера" />
         </div>
 
         <div className={styles.features}>

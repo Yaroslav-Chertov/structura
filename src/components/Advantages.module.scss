@@ -42,7 +42,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 30px 60px rgba(64, 151, 237, 0.15);
+    box-shadow: 0 30px 60px rgb(217, 221, 221);
   }
 }
 
@@ -55,8 +55,8 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border-radius: 999px;
-  background: rgba(79, 70, 229, 0.1);
-  color: #0465dc;
+  background: rgb(217, 221, 221);
+  color: #04675f;
 }
 
 .title {

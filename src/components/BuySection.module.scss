@@ -1,5 +1,5 @@
 .buy {
-  padding: 40px 20px 50px;
+  padding: 40px 20px 80px;
   background: #faf9fb;
   display: flex;
   justify-content: center;
@@ -8,7 +8,7 @@
 .card {
   max-width: 740px;
   width: 100%;
-  background: #0465dc;
+  background: #04675f;
   color: #ffffff;
   border-radius: 40px;
   padding: 50px 30px;
@@ -76,6 +76,7 @@
         color: #e0e7ff;
       }
     }
+
     .bonus {
       font-weight: 600;
       letter-spacing: 0.2px;
@@ -114,23 +115,22 @@
   height: 16px;
   margin-left: 4px;
   vertical-align: middle;
-}
-
-.googleIcon {
-  width: 16px;
-  height: 16px;
   object-fit: contain;
   transform: translateY(1px);
 }
 
 @media (max-width: 768px) {
   .buy {
-    padding: 40px 0 50px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 40px;
+    padding-bottom: 50px;
   }
 
   .card {
     padding: 40px 20px;
     border-radius: 24px;
+    max-width: 100%;
   }
 
   .title {
