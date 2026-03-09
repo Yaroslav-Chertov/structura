@@ -140,4 +140,11 @@
   .price {
     font-size: 1.4rem;
   }
+
+  .button {
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 }

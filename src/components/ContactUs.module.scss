@@ -56,4 +56,14 @@
   .subtitle {
     font-size: 1rem;
   }
+
+  .button {
+    max-width: 100%;
+    width: 100%;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 }

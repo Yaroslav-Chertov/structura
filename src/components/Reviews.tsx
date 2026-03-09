@@ -4,7 +4,10 @@ import React from "react";
 import styles from "./Reviews.module.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
 import "swiper/css";
+import "swiper/css/pagination";
 
 type Review = {
   name: string;
@@ -51,7 +54,12 @@ const Reviews: React.FC = () => {
       <h2 className={styles.title}>Что говорят пользователи</h2>
 
       <div className={styles.mobileSlider}>
-        <Swiper spaceBetween={16} slidesPerView={1.15}>
+        <Swiper
+          modules={[Pagination]}
+          spaceBetween={16}
+          slidesPerView={1.15}
+          pagination={{ clickable: true }}
+        >
           {reviews.map((review, index) => (
             <SwiperSlide key={index}>
               <div className={styles.card}>
@@ -61,6 +69,7 @@ const Reviews: React.FC = () => {
                     alt={review.name}
                     className={styles.avatar}
                   />
+
                   <div className={styles.meta}>
                     <span className={styles.author}>{review.name}</span>
                     <div className={styles.stars}>★★★★★</div>
@@ -83,6 +92,7 @@ const Reviews: React.FC = () => {
                 alt={review.name}
                 className={styles.avatar}
               />
+
               <div className={styles.meta}>
                 <span className={styles.author}>{review.name}</span>
                 <div className={styles.stars}>★★★★★</div>

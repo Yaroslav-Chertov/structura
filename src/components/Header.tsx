@@ -35,7 +35,7 @@ const Header: React.FC = () => {
       </div>
 
       <nav className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
-        <Link href="#planner" onClick={() => setMenuOpen(false)}>
+        <Link href="#product" onClick={() => setMenuOpen(false)}>
           О планере
         </Link>
         <Link href="#reviews" onClick={() => setMenuOpen(false)}>

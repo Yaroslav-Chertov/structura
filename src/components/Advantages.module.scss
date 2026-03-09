@@ -55,7 +55,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border-radius: 999px;
-  background: rgb(217, 221, 221);
+  background: rgb(243, 243, 243);
   color: #04675f;
 }
 
@@ -103,5 +103,10 @@
 
   .card {
     text-align: center;
+
+    &:hover {
+      transform: none;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
   }
 }

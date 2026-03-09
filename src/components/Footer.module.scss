@@ -95,4 +95,13 @@
     gap: 10px;
     text-align: center;
   }
+
+  .footer a::after {
+    width: 0 !important;
+    transition: none !important;
+  }
+
+  .links a:hover {
+    opacity: 0.9 !important;
+  }
 }

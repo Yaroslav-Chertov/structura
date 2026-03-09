@@ -151,7 +151,7 @@
 
 @media (max-width: 768px) {
   .visualSection {
-    padding: 20px 0 80px;
+    padding: 0 0 80px;
   }
 
   .banner {
@@ -182,6 +182,14 @@
   .buttonGroup {
     flex-direction: column;
     justify-content: center;
+  }
+
+  .button,
+  .buttonOutline {
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
   }
 
   .videoWrapper {
