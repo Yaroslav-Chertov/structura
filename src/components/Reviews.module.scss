@@ -15,10 +15,13 @@
 .mobileSlider {
   max-width: 1200px;
   margin: 0 auto;
-  padding-left: 20px;
 }
 
-:global(.swiper-slide:last-child) .card {
+:global(.swiper-slide:first-child) {
+  margin-left: 20px;
+}
+
+:global(.swiper-slide:last-child) {
   margin-right: 20px;
 }
 
