@@ -8,13 +8,13 @@ const ProductInfo: React.FC = () => {
     <section id="product" className={styles.product}>
       <div className={styles.content}>
         <h2 className={styles.title}>
-          Всё, что нужно &mdash; в&nbsp;одном месте
+          <span className={styles.white}> Всё, что нужно </span> &mdash;
+          в&nbsp;одном месте
         </h2>
         <p className={styles.text}>
-          Простая система планирования в&nbsp;Google-таблице. Она собирает цели,
-          задачи и&nbsp;приоритеты в&nbsp;одну структуру, показывает прогресс
+          Простая система в&nbsp;Google-таблице. Собирает цели, задачи
+          и&nbsp;приоритеты в&nbsp;одну структуру, показывает прогресс
           и&nbsp;помогает понимать, на&nbsp;что уходит ваше время.
-          Видно&nbsp;как шаг за&nbsp;шагом вы приближаетесь к&nbsp;результату.
         </p>
       </div>
 
@@ -36,12 +36,7 @@ const ProductInfo: React.FC = () => {
             <li className={styles.bonus}>Бонус: Финансовый планер &#x1F4B0;</li>
           </ul>
 
-          <div className={styles.price}>
-            <span className={styles.current}>490 ₽</span>
-            <span className={styles.old}>1 090 ₽</span>
-          </div>
-
-          <button className={styles.buyButton}>Купить планер</button>
+          <button className={styles.buyButton}>Купить</button>
         </div>
       </div>
     </section>

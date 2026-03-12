@@ -9,7 +9,8 @@ const VisualBlock: React.FC = () => {
       <div className={styles.banner}>
         <div className={styles.content}>
           <h2 className={styles.title}>
-            Все цели под контролем&nbsp;&mdash; в&nbsp;одной системе
+            <span className={styles.white}> Все цели под контролем</span>
+            &nbsp;&mdash; в&nbsp;одной системе
           </h2>
           <p className={styles.text}>
             Планер превращает хаос задач в&nbsp;чёткий план и&nbsp;даёт ощущение

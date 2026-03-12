@@ -1,30 +1,30 @@
 .footer {
-  background: #04675f;
-  color: #fff;
+  background: #1c1c1c;
   padding: 60px 20px 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration: none;
-}
+  color: rgba(240, 237, 232, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
-.footer a {
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+  }
 
-.footer a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 1px;
-  background: #fff;
-  transition: width 0.45s ease;
-}
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 1px;
+    background: #d4f06b;
+    transition: width 0.45s ease;
+  }
 
-.footer a:hover::after {
-  width: 100%;
+  a:hover::after {
+    width: 100%;
+  }
 }
 
 .top {
@@ -42,7 +42,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 14px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .info,
@@ -54,7 +54,6 @@
 }
 
 .links a {
-  opacity: 0.9;
   transition: opacity 0.2s;
 }
 
@@ -66,17 +65,16 @@
   max-width: 1100px;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  opacity: 0.85;
 }
 
 .copy,
 .developer {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .developer a {

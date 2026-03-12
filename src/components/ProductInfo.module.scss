@@ -1,6 +1,6 @@
 .product {
   padding: 40px 20px 60px;
-  background: #faf9fb;
+  background: #0b0b0b;
   text-align: center;
 }
 
@@ -13,13 +13,17 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #111827;
+  color: #d4f06b;
+}
+
+.white {
+  color: #fff;
 }
 
 .text {
   font-size: 1rem;
   line-height: 1.6;
-  color: #4b5563;
+  color: rgba(240, 237, 232, 0.6);
 }
 
 .slider {
@@ -45,6 +49,7 @@
   h3 {
     font-size: 1.4rem;
     margin-bottom: 20px;
+    color: #fff;
   }
 
   ul {
@@ -55,13 +60,13 @@
       padding-left: 28px;
       margin-bottom: 12px;
       position: relative;
-      color: #374151;
+      color: rgba(240, 237, 232, 0.6);
 
       &::before {
         content: "✓";
         position: absolute;
         left: 0;
-        color: #04675f;
+        color: #d4f06b;
         font-weight: 700;
       }
     }
@@ -69,40 +74,22 @@
     .bonus {
       font-weight: 600;
       letter-spacing: 0.2px;
+      color: #fff;
     }
-  }
-}
-
-.price {
-  margin: 20px 0;
-  font-size: 1.9rem;
-  font-weight: 700;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 16px;
-
-  .current {
-    color: #000;
-  }
-
-  .old {
-    color: #747474;
-    text-decoration: line-through;
-    font-weight: 500;
-    font-size: 1.2rem;
   }
 }
 
 .buyButton {
   display: inline-block;
   max-width: 420px;
+  margin-top: 20px;
   padding: 16px 42px;
   font-size: 1.1rem;
   font-weight: 600;
+  font-family: Unbounded, Arial, sans-serif;
   border-radius: 14px;
-  background: #04675f;
-  color: #fff;
+  background: #d4f06b;
+  color: #0b0b0b;
   border: none;
   cursor: pointer;
   transition:
@@ -110,8 +97,9 @@
     box-shadow 0.2s;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgb(217, 221, 221);
+    transform: translateY(-2px) scale(1.03);
+    background: #e8ff6b;
+    box-shadow: 0 12px 40px rgba(212, 240, 107, 0.25);
   }
 }
 
@@ -126,7 +114,7 @@
 @media (min-width: 1024px) {
   .main {
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     gap: 80px;
   }
 
@@ -148,14 +136,9 @@
     margin-bottom: 24px;
   }
 
-  .price {
-    justify-content: center;
-  }
-
   .buyButton {
     display: block;
     width: fit-content;
-    margin: 10px auto 0;
     max-width: 100%;
     width: 100%;
 
@@ -190,10 +173,6 @@
     img {
       border-radius: 8px;
     }
-  }
-
-  .price {
-    font-size: 1.4rem;
   }
 }
 

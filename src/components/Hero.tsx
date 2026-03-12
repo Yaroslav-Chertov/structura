@@ -9,7 +9,9 @@ const Hero: React.FC = () => {
       <div className={styles.visualSection}>
         <div className={styles.banner}>
           <div className={styles.content}>
-            <h1 className={styles.title}>Недельный планер</h1>
+            <h1 className={styles.title}>
+              <span className={styles.white}>Недельный</span> планер
+            </h1>
 
             <div className={styles.descriptionBlock}>
               <p className={styles.description}>
@@ -37,15 +39,10 @@ const Hero: React.FC = () => {
 
             <p className={styles.note}>
               Доступ сразу после оплаты &bull; Работает в&nbsp;Google Таблицах
-              <img
-                src="/google-sheets.png"
-                alt="Google Sheets"
-                className={styles.googleIcon}
-              />
             </p>
 
             <div className={styles.buttonGroup}>
-              <button className={styles.button}>Купить</button>
+              <button className={styles.button}>Получить планер</button>
               <a href="#product" className={styles.buttonOutline}>
                 О планере
               </a>

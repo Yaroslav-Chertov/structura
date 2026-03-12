@@ -7,20 +7,24 @@
 .legalPage h1 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #111827;
+  color: #d4f06b;
   margin-bottom: 28px;
   text-align: center;
+}
+
+.legalPage h2 {
+  color: #fff;
 }
 
 .legalPage p {
   font-size: 1rem;
   line-height: 1.7;
-  color: #4b5563;
+  color: rgba(240, 237, 232, 0.6);
   margin-bottom: 18px;
 }
 
 .legalPage a {
-  color: #04675f;
+  color: #d4f06b;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -32,7 +36,7 @@
   height: 4px;
   margin: 0 auto 40px;
   border-radius: 999px;
-  background: #04675f;
+  background: #d4f06b;
 }
 
 @media (max-width: 768px) {
