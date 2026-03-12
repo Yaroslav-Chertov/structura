@@ -30,7 +30,7 @@
 
 .button {
   padding: 16px 42px;
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 600;
   border-radius: 16px;
   cursor: pointer;
@@ -40,6 +40,11 @@
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #f0ede8;
+
+  word-break: break-all;
+  white-space: normal;
+  max-width: 100%;
+  display: inline-block;
 
   &:hover {
     border-color: #d4f06b;
