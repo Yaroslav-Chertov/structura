@@ -21,13 +21,9 @@ const Hero: React.FC = () => {
             </div>
 
             <div className={styles.videoWrapperMobile}>
-              <video
-                src="/video/demo.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
+              <img
+                src="/video/demo.gif"
+                alt="Демо планера"
                 className={styles.video}
               />
             </div>
@@ -50,13 +46,9 @@ const Hero: React.FC = () => {
           </div>
 
           <div className={styles.videoWrapper}>
-            <video
-              src="/video/demo.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
+            <img
+              src="/video/demo.gif"
+              alt="Демо планера"
               className={styles.video}
             />
           </div>
