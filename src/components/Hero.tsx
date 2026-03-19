@@ -4,6 +4,16 @@ import React from "react";
 import styles from "./Hero.module.scss";
 
 const Hero: React.FC = () => {
+  const handleBuy = async () => {
+    const res = await fetch("/api/pay", {
+      method: "POST",
+    });
+
+    const data = await res.json();
+
+    window.location.href = data.confirmation.confirmation_url;
+  };
+
   return (
     <section className={styles.hero}>
       <div className={styles.visualSection}>
@@ -38,7 +48,9 @@ const Hero: React.FC = () => {
             </p>
 
             <div className={styles.buttonGroup}>
-              <button className={styles.button}>Получить планер</button>
+              <button className={styles.button} onClick={handleBuy}>
+                Получить планер
+              </button>
               <a href="#product" className={styles.buttonOutline}>
                 О планере
               </a>
