@@ -1,9 +1,29 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./BuySection.module.scss";
 
 const BuySection: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleBuy = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/pay", { method: "POST" });
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Что-то пошло не так. Попробуйте ещё раз.");
+      }
+    } catch {
+      alert("Ошибка соединения. Попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="buy" className={styles.buy}>
       <div className={styles.container}>
@@ -37,7 +57,13 @@ const BuySection: React.FC = () => {
               <span className={styles.old}>1 090 ₽</span>
             </div>
 
-            <button className={styles.button}>Перейти к покупке</button>
+            <button
+              className={styles.button}
+              onClick={handleBuy}
+              disabled={loading}
+            >
+              {loading ? "Загружаем..." : "Перейти к покупке"}
+            </button>
 
             <p className={styles.note}>
               Доступ сразу после оплаты • Работает в Google Таблицах
