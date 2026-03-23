@@ -223,6 +223,9 @@ const Hero: React.FC = () => {
                 О планере
               </a>
             </div>
+            <p className={styles.note}>
+              Доступ сразу после оплаты • Работает в Google Таблицах
+            </p>
           </div>
           <div className={styles.videoWrapper}>
             <img
