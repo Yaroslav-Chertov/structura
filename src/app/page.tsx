@@ -18,7 +18,6 @@ export default function Page() {
       <ProductInfo />
       <Advantages />
       <Steps />
-      <VisualBlock />
       <Reviews />
       <BuySection />
       <FAQ />

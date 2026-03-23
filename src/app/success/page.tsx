@@ -28,9 +28,7 @@ const SuccessContent = () => {
           setState("valid");
           return;
         }
-      } catch {
-        /* продолжаем */
-      }
+      } catch {}
       if (attempt < 10) setTimeout(poll, 2000);
       else setState("invalid");
     };

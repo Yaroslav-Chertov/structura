@@ -25,7 +25,10 @@ export async function POST() {
     body: JSON.stringify({
       amount: { value: "490.00", currency: "RUB" },
       capture: true,
-      confirmation: { type: "embedded" },
+      confirmation: {
+        type: "redirect",
+        return_url: "https://structuraplaner.ru",
+      },
       description: "Покупка планера Structura",
     }),
   });
@@ -41,7 +44,7 @@ export async function POST() {
   }
 
   return NextResponse.json({
-    confirmationToken: data.confirmation.confirmation_token,
+    paymentUrl: data.confirmation.confirmation_url,
     paymentId: data.id,
   });
 }

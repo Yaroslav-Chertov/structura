@@ -1,42 +1,40 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Hero.module.scss";
 
-declare global {
-  interface Window {
-    YooMoneyCheckoutWidget: new (config: {
-      confirmation_token: string;
-      error_callback: (error: unknown) => void;
-    }) => {
-      on: (event: string, cb: () => void) => void;
-      render: (containerId: string) => Promise<void>;
-      destroy: () => void;
-    };
-  }
-}
-
-type PaymentState =
-  | "idle"
-  | "loading"
-  | "widget"
-  | "checking"
-  | "success"
-  | "fail";
+type PaymentState = "idle" | "loading" | "waiting" | "success" | "fail";
 
 const Hero: React.FC = () => {
   const [state, setState] = useState<PaymentState>("idle");
   const [plannerUrl, setPlannerUrl] = useState("");
 
-  useEffect(() => {
-    const existing = document.getElementById("yookassa-widget-script");
-    if (existing) return;
-    const script = document.createElement("script");
-    script.id = "yookassa-widget-script";
-    script.src = "https://yookassa.ru/checkout-widget/v1/checkout-widget.js";
-    script.async = true;
-    document.head.appendChild(script);
-  }, []);
+  const startPolling = (paymentId: string) => {
+    let attempts = 0;
+
+    const poll = async (): Promise<void> => {
+      attempts++;
+      try {
+        const r = await fetch(`/api/verify-token?paymentId=${paymentId}`);
+        const result = await r.json();
+        if (result.valid && result.plannerUrl) {
+          if (result.token)
+            sessionStorage.setItem("planner_token", result.token);
+          setPlannerUrl(result.plannerUrl);
+          setState("success");
+          return;
+        }
+      } catch {}
+
+      if (attempts < 30) {
+        setTimeout(poll, 2000);
+      } else {
+        setState("fail");
+      }
+    };
+
+    poll();
+  };
 
   const handleBuy = async () => {
     setState("loading");
@@ -44,58 +42,15 @@ const Hero: React.FC = () => {
       const res = await fetch("/api/pay", { method: "POST" });
       const data = await res.json();
 
-      if (!data.confirmationToken || !data.paymentId) {
+      if (!data.paymentUrl || !data.paymentId) {
+        console.error("Нет данных от API:", data);
         setState("fail");
         return;
       }
 
-      setState("widget");
-
-      const checkout = new window.YooMoneyCheckoutWidget({
-        confirmation_token: data.confirmationToken,
-        error_callback: (error) => {
-          console.error("Ошибка виджета:", error);
-          setState("fail");
-        },
-      });
-
-      checkout.on("success", async () => {
-        checkout.destroy();
-        setState("checking");
-
-        const paymentId = data.paymentId;
-        let attempts = 0;
-
-        const poll = async (): Promise<void> => {
-          attempts++;
-          try {
-            const r = await fetch(`/api/verify-token?paymentId=${paymentId}`);
-            const result = await r.json();
-            if (result.valid && result.plannerUrl) {
-              if (result.token)
-                sessionStorage.setItem("planner_token", result.token);
-              setPlannerUrl(result.plannerUrl);
-              setState("success");
-              return;
-            }
-          } catch {}
-
-          if (attempts < 15) {
-            setTimeout(poll, 2000);
-          } else {
-            setState("fail");
-          }
-        };
-
-        await poll();
-      });
-
-      checkout.on("fail", () => {
-        checkout.destroy();
-        setState("idle");
-      });
-
-      await checkout.render("payment-form-hero");
+      window.open(data.paymentUrl, "_blank");
+      setState("waiting");
+      startPolling(data.paymentId);
     } catch (err) {
       console.error(err);
       setState("fail");
@@ -111,7 +66,15 @@ const Hero: React.FC = () => {
               <h1 className={styles.title}>
                 <span className={styles.white}>Спасибо</span> за покупку 🎉
               </h1>
-              <p className={styles.note}>Ваш планер уже готов!</p>
+              <p className={styles.description}>
+                Ваш планер уже готов — нажмите кнопку ниже.
+              </p>
+              <div className={styles.successHint}>
+                <p>1. Нажмите «Открыть планер»</p>
+                <p>2. Файл → Создать копию</p>
+                <p>3. Работайте в своей версии</p>
+                <p>4. Добавьте в закладки, чтобы не потерять</p>
+              </div>
               <div className={styles.buttonGroup}>
                 <a
                   href={plannerUrl}
@@ -122,12 +85,100 @@ const Hero: React.FC = () => {
                   Открыть планер
                 </a>
               </div>
-              <p
-                className={styles.note}
-                style={{ marginTop: "1rem", fontSize: "0.85em", opacity: 0.7 }}
-              >
-                Сохраните ссылку в закладки — доступ навсегда
+            </div>
+            <div className={styles.videoWrapper}>
+              <img
+                src="/video/demo.gif"
+                alt="Демо планера"
+                className={styles.video}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (state === "waiting") {
+    return (
+      <section className={styles.hero}>
+        <div className={styles.visualSection}>
+          <div className={styles.banner}>
+            <div className={styles.content}>
+              <h1 className={styles.title}>
+                <span className={styles.white}>Ожидаем</span> оплату...
+              </h1>
+              <p className={styles.description}>
+                Страница оплаты открыта в&nbsp;новой вкладке. После оплаты
+                планер появится здесь автоматически&nbsp;&mdash;
+                не&nbsp;закрывайте эту страницу.
               </p>
+              <div className={styles.waitingBlock}>
+                <div className={styles.spinner} />
+                <p className={styles.waitingText}>
+                  Проверяем статус оплаты&nbsp;&mdash; обычно это занимает
+                  меньше минуты
+                </p>
+              </div>
+              <p className={styles.note}>
+                Уже оплатили, но&nbsp;ничего не&nbsp;происходит?{" "}
+                <a
+                  href="mailto:structura.planer@yandex.com"
+                  className={styles.noteLink}
+                >
+                  Напишите нам
+                </a>
+              </p>
+            </div>
+            <div className={styles.videoWrapper}>
+              <img
+                src="/video/demo.gif"
+                alt="Демо планера"
+                className={styles.video}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (state === "fail") {
+    return (
+      <section className={styles.hero}>
+        <div className={styles.visualSection}>
+          <div className={styles.banner}>
+            <div className={styles.content}>
+              <h1 className={styles.title}>
+                Что&#8209;то пошло{" "}
+                <span className={styles.errorText}>не так</span>
+              </h1>
+              <p className={styles.description}>
+                Не&nbsp;удалось подтвердить оплату. Если деньги
+                списались&nbsp;&mdash; напишите нам, разберёмся в&nbsp;течение
+                часа.
+              </p>
+              <div className={styles.buttonGroup}>
+                <button
+                  className={styles.button}
+                  onClick={() => setState("idle")}
+                >
+                  Попробовать снова
+                </button>
+                <a
+                  href="mailto:structura.planer@yandex.com"
+                  className={styles.buttonOutline}
+                >
+                  Написать нам
+                </a>
+              </div>
+            </div>
+            <div className={styles.videoWrapper}>
+              <img
+                src="/video/demo.gif"
+                alt="Демо планера"
+                className={styles.video}
+              />
             </div>
           </div>
         </div>
@@ -160,41 +211,19 @@ const Hero: React.FC = () => {
               <span className={styles.current}>490 ₽</span>
               <span className={styles.old}>1 090 ₽</span>
             </div>
-            <p className={styles.note}>
-              Доступ сразу после оплаты &bull; Работает в&nbsp;Google Таблицах
-            </p>
-
-            {state === "checking" && (
-              <p className={styles.note} style={{ marginTop: "1rem" }}>
-                Проверяем оплату...
-              </p>
-            )}
-            {state === "fail" && (
-              <p
-                className={styles.note}
-                style={{ marginTop: "1rem", color: "#e53e3e" }}
+            <div className={styles.buttonGroup}>
+              <button
+                className={styles.button}
+                onClick={handleBuy}
+                disabled={state === "loading"}
               >
-                Что-то пошло не так.{" "}
-                <a href="mailto:structura.planer@yandex.com">Напишите нам</a>
-              </p>
-            )}
-
-            {state !== "widget" && state !== "checking" && (
-              <div className={styles.buttonGroup}>
-                <button
-                  className={styles.button}
-                  onClick={handleBuy}
-                  disabled={state === "loading"}
-                >
-                  {state === "loading" ? "Загружаем..." : "Получить планер"}
-                </button>
-                <a href="#product" className={styles.buttonOutline}>
-                  О планере
-                </a>
-              </div>
-            )}
+                {state === "loading" ? "Загружаем..." : "Получить планер"}
+              </button>
+              <a href="#product" className={styles.buttonOutline}>
+                О планере
+              </a>
+            </div>
           </div>
-
           <div className={styles.videoWrapper}>
             <img
               src="/video/demo.gif"
@@ -203,17 +232,6 @@ const Hero: React.FC = () => {
             />
           </div>
         </div>
-
-        {state === "widget" && (
-          <div
-            id="payment-form-hero"
-            style={{
-              maxWidth: "600px",
-              margin: "2rem auto",
-              padding: "0 1rem",
-            }}
-          />
-        )}
       </div>
     </section>
   );

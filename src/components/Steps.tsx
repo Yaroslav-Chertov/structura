@@ -37,10 +37,6 @@ const Steps: React.FC = () => {
           </p>
         </div>
       </div>
-
-      <div className={styles.cta}>
-        <button className={styles.button}>Начать</button>
-      </div>
     </section>
   );
 };

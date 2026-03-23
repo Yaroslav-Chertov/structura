@@ -35,8 +35,6 @@ const ProductInfo: React.FC = () => {
             <li>Автоматические расчёты и графики</li>
             <li className={styles.bonus}>Бонус: Финансовый планер &#x1F4B0;</li>
           </ul>
-
-          <button className={styles.buyButton}>Купить</button>
         </div>
       </div>
     </section>
