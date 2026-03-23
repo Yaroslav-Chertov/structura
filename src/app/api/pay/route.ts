@@ -27,7 +27,7 @@ export async function POST() {
       capture: true,
       confirmation: {
         type: "redirect",
-        return_url: "https://structuraplaner.ru",
+        return_url: "https://structura-iota.vercel.app/",
       },
       description: "Покупка планера Structura",
     }),
