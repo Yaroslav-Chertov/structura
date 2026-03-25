@@ -87,6 +87,7 @@ const Hero: React.FC = () => {
               </div>
             </div>
             <div className={styles.videoWrapper}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/video/demo.gif"
                 alt="Демо планера"
@@ -131,6 +132,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
             <div className={styles.videoWrapper}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/video/demo.gif"
                 alt="Демо планера"
@@ -174,6 +176,7 @@ const Hero: React.FC = () => {
               </div>
             </div>
             <div className={styles.videoWrapper}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/video/demo.gif"
                 alt="Демо планера"
@@ -201,6 +204,7 @@ const Hero: React.FC = () => {
               </p>
             </div>
             <div className={styles.videoWrapperMobile}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/video/demo.gif"
                 alt="Демо планера"
@@ -228,6 +232,7 @@ const Hero: React.FC = () => {
             </p>
           </div>
           <div className={styles.videoWrapper}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/video/demo.gif"
               alt="Демо планера"
