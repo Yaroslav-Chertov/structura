@@ -1,54 +1,87 @@
+@use "../styles/variables" as v;
+
 .product {
-  padding: 60px 20px 80px;
-  background: #0b0b0b;
+  padding: v.$space-lg v.$space-sm v.$space-2xl;
+  background: v.$bg;
 }
 
 .content {
   max-width: 720px;
-  margin: 0 auto 40px;
+  margin: 0 auto v.$space-lg;
   text-align: center;
 }
 
 .title {
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 16px;
-  color: #d4f06b;
+  margin-bottom: v.$space-sm;
+  color: v.$accent;
+  line-height: 1.2;
+
+  @media (max-width: 600px) {
+    font-size: 1.9rem;
+  }
 }
 
 .white {
-  color: #fff;
+  color: v.$white;
 }
 
 .text {
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(240, 237, 232, 0.6);
+  line-height: 1.7;
+  color: v.$text;
 }
 
 .main {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: v.$space-xl;
   align-items: center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: v.$space-md;
+  }
 }
 
 .slider {
   position: relative;
-  border-radius: 18px;
+  border-radius: v.$radius-lg;
   padding: 10px;
-
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
+  border: 1px solid v.$border;
+  transition:
+    transform v.$transition-slow,
+    box-shadow v.$transition-slow;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: perspective(1000px) rotateY(4deg) rotateX(-1deg);
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(212, 240, 107, 0.08);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+      box-shadow:
+        0 50px 120px rgba(0, 0, 0, 0.7),
+        0 0 60px rgba(212, 240, 107, 0.15);
+    }
+  }
+
+  @media (max-width: 900px) {
+    transform: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
 
 .slider img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: v.$radius-sm;
   display: block;
 }
 
@@ -56,10 +89,10 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 18px;
+  border-radius: v.$radius-lg;
   background: radial-gradient(
     circle at 30% 20%,
-    rgba(212, 240, 107, 0.12),
+    rgba(212, 240, 107, 0.1),
     transparent 60%
   );
   pointer-events: none;
@@ -67,9 +100,10 @@
 
 .features {
   h3 {
-    font-size: 1.3rem;
-    margin-bottom: 18px;
-    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: v.$space-sm;
+    color: v.$white;
+    font-weight: 600;
   }
 
   ul {
@@ -77,64 +111,41 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: v.$space-xs;
   }
 
   li {
-    padding: 12px 14px 12px 36px;
-    border-radius: 12px;
-
+    padding: 12px 14px 12px 38px;
+    border-radius: v.$radius-sm;
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(6px);
-
-    border: 1px solid rgba(255, 255, 255, 0.06);
-
+    border: 1px solid v.$border;
     font-size: 0.92rem;
-    color: rgba(240, 237, 232, 0.7);
-
+    color: v.$text-bright;
     position: relative;
-    transition: 0.2s ease;
-  }
+    transition:
+      background v.$transition,
+      border-color v.$transition;
 
-  li::before {
-    content: "✓";
-    position: absolute;
-    left: 12px;
-    top: 12px;
-    color: #d4f06b;
-    font-weight: 700;
-  }
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      color: v.$accent;
+      font-weight: 700;
+    }
 
-  @media (hover: hover) and (pointer: fine) {
-    li:hover {
-      background: rgba(212, 240, 107, 0.08);
-      border-color: rgba(212, 240, 107, 0.25);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: rgba(212, 240, 107, 0.06);
+        border-color: rgba(212, 240, 107, 0.2);
+      }
     }
   }
 
   .bonus {
-    color: #fff;
-  }
-}
-
-@media (max-width: 900px) {
-  .main {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .slider {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .features {
-    text-align: left;
-  }
-}
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 1.9rem;
+    color: v.$white;
+    border-color: rgba(212, 240, 107, 0.15);
+    background: rgba(212, 240, 107, 0.04);
   }
 }

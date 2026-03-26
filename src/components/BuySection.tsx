@@ -185,7 +185,7 @@ const BuySection: React.FC = () => {
               <li>Дневник состояния и мыслей</li>
               <li>Автоматические расчёты и графики</li>
               <li>Работа на ПК и телефоне</li>
-              <li className={styles.bonus}>Бонус: Финансовый планер 💰</li>
+              <li className={styles.bonus}>Бонус: Финансовый планер</li>
             </ul>
             <div className={styles.price}>
               <span className={styles.current}>490 ₽</span>

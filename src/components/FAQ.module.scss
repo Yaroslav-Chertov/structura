@@ -1,74 +1,99 @@
+@use "../styles/variables" as v;
+
 .faq {
-  padding: 40px 20px 80px;
-  background: #0b0b0b;
+  padding: v.$space-lg v.$space-sm v.$space-2xl;
+  background: v.$bg;
   text-align: center;
+}
 
-  .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #d4f06b;
-  }
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: v.$space-md;
+  color: v.$accent;
 
-  .list {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-  }
-
-  .answerWrapper {
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .answer {
-    margin: 12px 0 0 0;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: rgba(240, 237, 232, 0.6);
-  }
-
-  .item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 16px 0;
-
-    .question {
-      width: 100%;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-align: left;
-      font-family: Unbounded, Arial, sans-serif;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0;
-      color: #fff;
-      transition: color 0.2s;
-
-      &:hover {
-        color: #d4f06b;
-      }
-
-      span {
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
-    }
-  }
-
-  .open {
-    .question {
-      color: #04675f;
-    }
+  @media (max-width: 600px) {
+    font-size: 1.9rem;
+    margin-bottom: v.$space-sm;
   }
 }
 
-@media (max-width: 600px) {
-  .faq .title {
-    font-size: 1.9rem;
-    margin-bottom: 24px;
+.list {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.item {
+  border-bottom: 1px solid v.$border;
+
+  &:first-child {
+    border-top: 1px solid v.$border;
   }
+}
+
+.itemOpen .question {
+  color: v.$accent;
+}
+
+.question {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  font-family: v.$font-family;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: v.$space-sm;
+  padding: v.$space-sm 0;
+  color: v.$white;
+  transition: color v.$transition;
+  line-height: 1.5;
+
+  &:hover {
+    color: v.$accent;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.95rem;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border-radius: 50%;
+  background: rgba(212, 240, 107, 0.08);
+  color: v.$accent;
+  line-height: 1;
+  transition:
+    background v.$transition,
+    transform v.$transition;
+
+  .itemOpen & {
+    background: rgba(212, 240, 107, 0.15);
+    transform: rotate(0deg);
+  }
+}
+
+.answerWrapper {
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.answer {
+  padding: 0 0 v.$space-sm;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: v.$text;
 }

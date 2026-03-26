@@ -1,29 +1,20 @@
+@use "../styles/variables" as v;
+
 .footer {
-  background: #1c1c1c;
-  padding: 60px 20px 30px;
-  color: rgba(240, 237, 232, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background: v.$surface;
+  padding: v.$space-xl v.$space-sm v.$space-md;
+  color: v.$text;
+  border-top: 1px solid v.$border;
 
   a {
     color: inherit;
     text-decoration: none;
     position: relative;
+    transition: color v.$transition;
   }
 
-  a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0;
-    height: 1px;
-    background: #d4f06b;
-    transition: width 0.45s ease;
-  }
-
-  a:hover::after {
-    width: 100%;
+  a:hover {
+    color: v.$accent;
   }
 }
 
@@ -32,74 +23,63 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  padding-bottom: 40px;
+  gap: v.$space-2xl;
+  padding-bottom: v.$space-lg;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: v.$space-lg;
+  }
 }
 
 .heading {
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-  opacity: 0.8;
+  letter-spacing: 0.08em;
+  margin-bottom: v.$space-sm;
+  color: rgba(240, 237, 232, 0.4);
 }
 
 .info,
 .links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 0.95rem;
-}
-
-.links a {
-  transition: opacity 0.2s;
-}
-
-.links a:hover {
-  opacity: 1;
+  gap: 6px;
+  font-size: 0.9rem;
 }
 
 .bottom {
   max-width: 1100px;
   margin: 0 auto;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: v.$space-sm;
+  border-top: 1px solid v.$border;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
-}
+  font-size: 0.82rem;
+  gap: v.$space-sm;
 
-.copy,
-.developer {
-  opacity: 0.8;
-}
-
-.developer a {
-  margin-left: 6px;
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .top {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .bottom {
+  @media (max-width: 768px) {
     flex-direction: column;
-    gap: 10px;
     text-align: center;
   }
+}
 
-  .footer a::after {
-    width: 0 !important;
-    transition: none !important;
-  }
+.copy {
+  color: rgba(240, 237, 232, 0.4);
+}
 
-  .links a:hover {
-    opacity: 0.9 !important;
+.developer {
+  color: rgba(240, 237, 232, 0.4);
+
+  a {
+    margin-left: 4px;
+    font-weight: 500;
+    color: rgba(240, 237, 232, 0.6);
+
+    &:hover {
+      color: v.$accent;
+    }
   }
 }

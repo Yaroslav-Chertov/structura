@@ -1,4 +1,35 @@
-$primary-color: #0b0b0b;
-$secondary-color: #0b0b0b;
+// SCSS переменные
 $font-family: "Unbounded", "Arial", sans-serif;
 $font-size-base: 16px;
+
+// Цветовая палитра
+$bg: #0b0b0b;
+$surface: #1c1c1c;
+$surface-2: #242424;
+$accent: #d4f06b;
+$accent-hover: #e8ff6b;
+$white: #ffffff;
+$text: rgba(240, 237, 232, 0.6);
+$text-bright: rgba(240, 237, 232, 0.85);
+$border: rgba(255, 255, 255, 0.07);
+$border-2: rgba(255, 255, 255, 0.12);
+$error: #ff6b6b;
+
+// Отступы
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 40px;
+$space-xl: 60px;
+$space-2xl: 80px;
+
+// Скругления
+$radius-sm: 12px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-xl: 32px;
+$radius-2xl: 40px;
+
+// Переходы
+$transition: 0.25s ease;
+$transition-slow: 0.4s ease;

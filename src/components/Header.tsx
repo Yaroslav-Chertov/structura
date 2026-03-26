@@ -1,54 +1,108 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 
+const NAV_LINKS = [
+  { href: "#product", label: "О планере" },
+  { href: "#reviews", label: "Отзывы" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Задать вопрос" },
+];
+
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <Link href="/" className={styles.logoLink}>
-          <span className={styles.logoText}>Structura</span>
-        </Link>
+    <>
+      <header
+        className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
+        role="banner"
+      >
+        <div className={styles.container}>
+          <Link
+            href="/"
+            className={styles.logoLink}
+            aria-label="Structura — на главную"
+          >
+            <span className={styles.logoText}>Structura</span>
+          </Link>
 
-        <nav className={styles.nav}>
-          <Link href="#product">О планере</Link>
-          <Link href="#reviews">Отзывы</Link>
-          <Link href="#faq">FAQ</Link>
-          <Link href="#contact">Задать вопрос</Link>
+          <nav className={styles.nav} aria-label="Основная навигация">
+            {NAV_LINKS.map(({ href, label }) => (
+              <a key={href} href={href} className={styles.navLink}>
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          <a href="#buy" className={styles.ctaButton}>
+            Купить — 490 ₽
+          </a>
+
+          <button
+            className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
+
+      {}
+      <div
+        id="mobile-menu"
+        className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}
+        aria-hidden={!menuOpen}
+      >
+        <nav aria-label="Мобильная навигация">
+          {NAV_LINKS.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className={styles.mobileLink}
+              onClick={closeMenu}
+            >
+              {label}
+            </a>
+          ))}
+          <a href="#buy" className={styles.mobileCta} onClick={closeMenu}>
+            Купить — 490 ₽
+          </a>
         </nav>
-
-        <button
-          className={styles.burger}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <span className={menuOpen ? styles.openLine1 : ""} />
-          <span className={menuOpen ? styles.openLine2 : ""} />
-          <span className={menuOpen ? styles.openLine3 : ""} />
-        </button>
       </div>
 
-      <nav className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
-        <Link href="#product" onClick={() => setMenuOpen(false)}>
-          О планере
-        </Link>
-        <Link href="#reviews" onClick={() => setMenuOpen(false)}>
-          Отзывы
-        </Link>
-        <Link href="#faq" onClick={() => setMenuOpen(false)}>
-          FAQ
-        </Link>
-        <Link href="#contact" onClick={() => setMenuOpen(false)}>
-          Задать вопрос
-        </Link>
-      </nav>
-    </header>
+      {}
+      {menuOpen && (
+        <div
+          className={styles.overlay}
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
+    </>
   );
 };
 

@@ -1,73 +1,60 @@
-@use "../styles/variables" as var;
+@use "../styles/variables" as v;
 
 .contactUs {
-  padding: 40px 20px 80px;
-  background: #0b0b0b;
+  padding: v.$space-lg v.$space-sm v.$space-2xl;
+  background: v.$bg;
   text-align: center;
+}
+
+.inner {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 12px;
+  color: v.$white;
+  margin-bottom: v.$space-xs;
+
+  @media (max-width: 600px) {
+    font-size: 1.9rem;
+  }
 }
 
 .subtitle {
   font-size: 1rem;
-  color: #6b7280;
-  margin-bottom: 14px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  color: v.$text;
+  margin-bottom: v.$space-md;
   line-height: 1.6;
 }
 
-.cta {
-  display: flex;
-  justify-content: center;
-}
-
 .button {
-  padding: 16px 42px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 16px;
-  cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f0ede8;
-
-  word-break: break-all;
-  white-space: normal;
-  max-width: 100%;
   display: inline-block;
+  padding: 16px 36px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: v.$font-family;
+  border-radius: v.$radius-md;
+  border: 1px solid v.$border-2;
+  color: rgba(240, 237, 232, 0.85);
+  text-decoration: none;
+  transition:
+    border-color v.$transition,
+    color v.$transition,
+    background v.$transition;
+  word-break: break-all;
 
-  &:hover {
-    border-color: #d4f06b;
-    color: #d4f06b;
-  }
-}
-
-@media (max-width: 900px) {
-  .title {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .button {
-    max-width: 100%;
-    width: 100%;
-
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
-      transform: none;
-      box-shadow: none;
+      border-color: v.$accent;
+      color: v.$accent;
+      background: rgba(212, 240, 107, 0.05);
     }
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    text-align: center;
   }
 }

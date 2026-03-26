@@ -1,14 +1,62 @@
-@use "variables" as var;
+@use "variables" as v;
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  font-family: var.$font-family;
-  font-size: var.$font-size-base;
-  background-color: var.$secondary-color;
-  color: #d4f06b;
+  font-family: v.$font-family;
+  font-size: v.$font-size-base;
+  background-color: v.$bg;
+  color: v.$accent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+// Системный focus-visible для доступности
+:focus-visible {
+  outline: 2px solid v.$accent;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+// Убираем outline при клике мышью
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Уважаем prefers-reduced-motion глобально
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
 }
