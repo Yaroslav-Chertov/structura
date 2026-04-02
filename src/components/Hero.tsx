@@ -88,11 +88,9 @@ const Hero: React.FC = () => {
             </div>
             <div className={styles.videoWrapper}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/video/demo.gif"
-                alt="Демо планера"
-                className={styles.video}
-              />
+              <video className={styles.video} autoPlay muted loop playsInline>
+                <source src="/video/demo.webm" type="video/webm" />
+              </video>
             </div>
           </div>
         </div>
@@ -133,11 +131,9 @@ const Hero: React.FC = () => {
             </div>
             <div className={styles.videoWrapper}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/video/demo.gif"
-                alt="Демо планера"
-                className={styles.video}
-              />
+              <video className={styles.video} autoPlay muted loop playsInline>
+                <source src="/video/demo.webm" type="video/webm" />
+              </video>
             </div>
           </div>
         </div>
@@ -177,11 +173,9 @@ const Hero: React.FC = () => {
             </div>
             <div className={styles.videoWrapper}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/video/demo.gif"
-                alt="Демо планера"
-                className={styles.video}
-              />
+              <video className={styles.video} autoPlay muted loop playsInline>
+                <source src="/video/demo.webm" type="video/webm" />
+              </video>
             </div>
           </div>
         </div>
@@ -205,11 +199,9 @@ const Hero: React.FC = () => {
             </div>
             <div className={styles.videoWrapperMobile}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/video/demo.gif"
-                alt="Демо планера"
-                className={styles.video}
-              />
+              <video className={styles.video} autoPlay muted loop playsInline>
+                <source src="/video/demo.webm" type="video/webm" />
+              </video>
             </div>
             <div className={styles.price}>
               <span className={styles.current}>490 ₽</span>
@@ -233,11 +225,9 @@ const Hero: React.FC = () => {
           </div>
           <div className={styles.videoWrapper}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/video/demo.gif"
-              alt="Демо планера"
-              className={styles.video}
-            />
+            <video className={styles.video} autoPlay muted loop playsInline>
+              <source src="/video/demo.webm" type="video/webm" />
+            </video>
           </div>
         </div>
       </div>
