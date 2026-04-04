@@ -1,0 +1,9 @@
+# robots.txt для Structura Planner
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /success/
+
+# Sitemap
+Sitemap: https://structuraplaner.ru/sitemap.xml
