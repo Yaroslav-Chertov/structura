@@ -65,7 +65,7 @@ const BuySection: React.FC = () => {
               Нажмите кнопку ниже, чтобы открыть его
             </p>
           </div>
-          <div className={styles.card}>
+          <div className={styles.cardCentered}>
             <div className={styles.features}>
               <div className={styles.successHint}>
                 <p>1. Нажмите «Открыть планер»</p>
@@ -103,7 +103,7 @@ const BuySection: React.FC = () => {
               страницу.
             </p>
           </div>
-          <div className={styles.card}>
+          <div className={styles.cardCentered}>
             <div className={styles.features}>
               <div className={styles.waitingBlock}>
                 <div className={styles.spinner} />
@@ -139,7 +139,7 @@ const BuySection: React.FC = () => {
               в&nbsp;течение часа.
             </p>
           </div>
-          <div className={styles.card}>
+          <div className={styles.cardCentered}>
             <div className={styles.features}>
               <div className={styles.buttonRow}>
                 <button
@@ -173,33 +173,46 @@ const BuySection: React.FC = () => {
           </p>
         </div>
 
-        <div className={styles.card}>
-          <div className={styles.features}>
-            <h3>Что ждет внутри планера</h3>
-            <ul>
-              <li>Цели на неделю с чек-листами</li>
-              <li>Задачи по дням с чекбоксами</li>
-              <li>Прогресс дня, недели и месяца</li>
-              <li>Трекер привычек с % выполнения</li>
-              <li>Аналитика недели и диаграммы</li>
-              <li>Дневник состояния и мыслей</li>
-              <li>Автоматические расчёты</li>
-              <li className={styles.bonus}>Бонус: Финансовый планер 💰</li>
-            </ul>
-            <div className={styles.price}>
-              <span className={styles.current}>490 ₽</span>
-              <span className={styles.old}>1 090 ₽</span>
+        <div className={styles.main}>
+          {/* Левая колонка: фичи + кнопка */}
+          <div className={styles.card}>
+            <div className={styles.features}>
+              <h3>Что ждет внутри планера</h3>
+              <ul>
+                <li>Цели на неделю с чек-листами</li>
+                <li>Задачи по дням с чекбоксами</li>
+                <li>Прогресс дня, недели и месяца</li>
+                <li>Трекер привычек с % выполнения</li>
+                <li>Аналитика недели и диаграммы</li>
+                <li>Дневник состояния и мыслей</li>
+                <li>Автоматические расчёты</li>
+                <li className={styles.bonus}>Бонус: Финансовый планер 💰</li>
+              </ul>
+              <div className={styles.price}>
+                <span className={styles.current}>490 ₽</span>
+                <span className={styles.old}>1 090 ₽</span>
+              </div>
+              <button
+                className={styles.button}
+                onClick={handleBuy}
+                disabled={state === "loading"}
+              >
+                {state === "loading" ? "Загружаем..." : "Перейти к покупке"}
+              </button>
+              <p className={styles.note}>
+                Доступ сразу после оплаты • Работает в Google Таблицах
+              </p>
             </div>
-            <button
-              className={styles.button}
-              onClick={handleBuy}
-              disabled={state === "loading"}
-            >
-              {state === "loading" ? "Загружаем..." : "Перейти к покупке"}
-            </button>
-            <p className={styles.note}>
-              Доступ сразу после оплаты • Работает в Google Таблицах
-            </p>
+          </div>
+
+          {/* Правая колонка: скрин планера */}
+          <div className={styles.screenWrapper}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/screens/screen.png"
+              alt="Скриншот планера Structura"
+              className={styles.screenImg}
+            />
           </div>
         </div>
       </div>
