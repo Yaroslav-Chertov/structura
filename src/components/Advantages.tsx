@@ -1,18 +1,28 @@
+"use client";
+
 import React from "react";
 import styles from "./Advantages.module.scss";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Advantages: React.FC = () => {
+  const headRef = useScrollAnimation<HTMLDivElement>();
+  const card1Ref = useScrollAnimation<HTMLDivElement>(0.08);
+  const card2Ref = useScrollAnimation<HTMLDivElement>(0.08);
+  const card3Ref = useScrollAnimation<HTMLDivElement>(0.08);
+
   return (
     <section id="advantages" className={styles.advantages}>
-      <h2 className={styles.sectionTitle}>Кому подойдёт</h2>
-      <p className={styles.sectionSubtitle}>
-        Если вам важно держать фокус, видеть реальный прогресс
-        и&nbsp;не&nbsp;тонуть в&nbsp;задачах&nbsp;&mdash; скорее всего,
-        вы&nbsp;узнаете себя ниже.
-      </p>
+      <div ref={headRef} data-animate>
+        <h2 className={styles.sectionTitle}>Кому подойдёт</h2>
+        <p className={styles.sectionSubtitle}>
+          Если вам важно держать фокус, видеть реальный прогресс
+          и&nbsp;не&nbsp;тонуть в&nbsp;задачах&nbsp;&mdash; скорее всего,
+          вы&nbsp;узнаете себя ниже.
+        </p>
+      </div>
 
       <div className={styles.grid}>
-        <div className={styles.card}>
+        <div ref={card1Ref} data-animate data-delay="1" className={styles.card}>
           <span className={styles.tag}>Цели</span>
           <h3 className={styles.title}>Цели и повседневные задачи</h3>
           <p className={styles.text}>
@@ -28,7 +38,7 @@ const Advantages: React.FC = () => {
           />
         </div>
 
-        <div className={styles.card}>
+        <div ref={card2Ref} data-animate data-delay="2" className={styles.card}>
           <span className={styles.tag}>Обучение и развитие</span>
           <h3 className={styles.title}>Для обучения и развития навыков</h3>
           <p className={styles.text}>
@@ -44,7 +54,7 @@ const Advantages: React.FC = () => {
           />
         </div>
 
-        <div className={styles.card}>
+        <div ref={card3Ref} data-animate data-delay="3" className={styles.card}>
           <span className={styles.tag}>Работа, проекты и жизнь</span>
           <h3 className={styles.title}>Для занятых людей и фрилансеров</h3>
           <p className={styles.text}>

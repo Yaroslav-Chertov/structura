@@ -11,7 +11,11 @@ const NAV_LINKS = [
   { href: "#contact", label: "Задать вопрос" },
 ];
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onBuyClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onBuyClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -29,6 +33,11 @@ const Header: React.FC = () => {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleBuyClick = () => {
+    closeMenu();
+    onBuyClick();
+  };
 
   return (
     <>
@@ -53,9 +62,9 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          <a href="#buy" className={styles.ctaButton}>
-            Купить — 490 ₽
-          </a>
+          <button className={styles.ctaButton} onClick={onBuyClick}>
+            Купить — 490&nbsp;₽
+          </button>
 
           <button
             className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
@@ -71,7 +80,6 @@ const Header: React.FC = () => {
         </div>
       </header>
 
-      {}
       <div
         id="mobile-menu"
         className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}
@@ -88,13 +96,12 @@ const Header: React.FC = () => {
               {label}
             </a>
           ))}
-          <a href="#buy" className={styles.mobileCta} onClick={closeMenu}>
-            Купить — 490 ₽
-          </a>
+          <button className={styles.mobileCta} onClick={handleBuyClick}>
+            Купить — 490&nbsp;₽
+          </button>
         </nav>
       </div>
 
-      {}
       {menuOpen && (
         <div
           className={styles.overlay}

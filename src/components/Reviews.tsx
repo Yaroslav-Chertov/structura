@@ -2,6 +2,7 @@
 
 import React from "react";
 import styles from "./Reviews.module.scss";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -49,10 +50,16 @@ const reviews: Review[] = [
 ];
 
 const Reviews: React.FC = () => {
+  const headRef = useScrollAnimation<HTMLDivElement>();
+  const gridRef = useScrollAnimation<HTMLDivElement>(0.05);
+
   return (
     <section id="reviews" className={styles.reviews}>
-      <h2 className={styles.title}>Что говорят пользователи</h2>
+      <div ref={headRef} data-animate>
+        <h2 className={styles.title}>Что говорят пользователи</h2>
+      </div>
 
+      {/* Mobile swiper */}
       <div className={styles.mobileSlider}>
         <Swiper
           modules={[Pagination]}
@@ -69,13 +76,11 @@ const Reviews: React.FC = () => {
                     alt={review.name}
                     className={styles.avatar}
                   />
-
                   <div className={styles.meta}>
                     <span className={styles.author}>{review.name}</span>
                     <div className={styles.stars}>★★★★★</div>
                   </div>
                 </div>
-
                 <p className={styles.text}>{review.text}</p>
               </div>
             </SwiperSlide>
@@ -83,7 +88,8 @@ const Reviews: React.FC = () => {
         </Swiper>
       </div>
 
-      <div className={styles.grid}>
+      {/* Desktop grid */}
+      <div ref={gridRef} data-animate className={styles.grid}>
         {reviews.map((review, index) => (
           <div key={index} className={styles.card}>
             <div className={styles.header}>
@@ -92,13 +98,11 @@ const Reviews: React.FC = () => {
                 alt={review.name}
                 className={styles.avatar}
               />
-
               <div className={styles.meta}>
                 <span className={styles.author}>{review.name}</span>
                 <div className={styles.stars}>★★★★★</div>
               </div>
             </div>
-
             <p className={styles.text}>{review.text}</p>
           </div>
         ))}

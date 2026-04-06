@@ -2,12 +2,13 @@
 
 import React, { useState } from "react";
 import styles from "./FAQ.module.scss";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqs = [
   {
     question: "Как быстро я получу доступ к планеру?",
     answer:
-      "Сразу после оплаты — прямо на странице сайта появится кнопка «Открыть планер». Никаких писем ждать не нужно. Нажмите кнопку, выберите «Файл → Создать копию» и можно сразу приступать.",
+      "После того как вы оставите контакт, мы пришлём ссылку на оплату в течение нескольких минут. Как только получим подтверждение оплаты — сразу отправим ссылку на Google Таблицу. Обычно это занимает не больше нескольких часов.",
   },
   {
     question: "Нужно ли устанавливать что-то дополнительно?",
@@ -20,14 +21,21 @@ const faqs = [
       "Да, планер полностью совместим с мобильным приложением Google Таблицы. Добавляйте задачи и отмечайте прогресс прямо с телефона. Для первой настройки удобнее использовать компьютер.",
   },
   {
-    question: "Оплатил, но кнопка с планером не появилась — что делать?",
+    question: "Как происходит оплата?",
     answer:
-      "Не закрывайте главную страницу — иногда подтверждение оплаты занимает до минуты. Если кнопка «Открыть планер» так и не появилась, напишите нам на structura.planer@yandex.com. Укажите примерное время оплаты и мы быстро разберёмся.",
+      "Вы оставляете email или Telegram, мы присылаем персональную ссылку на оплату через ЮКассу. После подтверждения оплаты вы получаете ссылку на планер. Всё просто и безопасно.",
+  },
+  {
+    question: "Что если я не получил ссылку на планер?",
+    answer:
+      "Проверьте папки «Спам» и «Промоакции», если ждёте письмо. Если доступ так и не пришёл — напишите нам на structura.planer@yandex.com, указав способ связи и примерное время оплаты. Мы разберёмся быстро.",
   },
 ];
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState(0);
+  const headRef = useScrollAnimation<HTMLDivElement>();
+  const listRef = useScrollAnimation<HTMLDivElement>(0.05);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -35,8 +43,16 @@ const FAQ: React.FC = () => {
 
   return (
     <section id="faq" className={styles.faq}>
-      <h2 className={styles.title}>Частые вопросы</h2>
-      <div className={styles.list} role="list">
+      <div ref={headRef} data-animate>
+        <h2 className={styles.title}>Частые вопросы</h2>
+      </div>
+      <div
+        ref={listRef}
+        data-animate
+        data-delay="1"
+        className={styles.list}
+        role="list"
+      >
         {faqs.map((item, index) => {
           const isOpen = openIndex === index;
           const id = `faq-answer-${index}`;

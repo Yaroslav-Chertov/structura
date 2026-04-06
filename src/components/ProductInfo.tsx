@@ -2,11 +2,15 @@
 
 import React from "react";
 import styles from "./ProductInfo.module.scss";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ProductInfo: React.FC = () => {
+  const headRef = useScrollAnimation<HTMLDivElement>();
+  const mainRef = useScrollAnimation<HTMLDivElement>(0.08);
+
   return (
     <section id="product" className={styles.product}>
-      <div className={styles.content}>
+      <div ref={headRef} data-animate className={styles.content}>
         <h2 className={styles.title}>
           <span className={styles.white}> Всё, что нужно </span> &mdash;
           в&nbsp;одном месте
@@ -18,7 +22,7 @@ const ProductInfo: React.FC = () => {
         </p>
       </div>
 
-      <div className={styles.main}>
+      <div ref={mainRef} data-animate data-delay="1" className={styles.main}>
         <div className={styles.slider}>
           <img src="/screens/screen.png" alt="Скриншот планера" />
         </div>

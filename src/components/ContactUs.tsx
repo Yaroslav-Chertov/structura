@@ -2,11 +2,14 @@
 
 import React from "react";
 import styles from "./ContactUs.module.scss";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ContactUs: React.FC = () => {
+  const ref = useScrollAnimation<HTMLDivElement>();
+
   return (
     <section id="contact" className={styles.contactUs}>
-      <div className={styles.inner}>
+      <div ref={ref} data-animate className={styles.inner}>
         <h2 className={styles.title}>Остались вопросы?</h2>
         <p className={styles.subtitle}>
           Напишите — ответим в течение нескольких часов.
