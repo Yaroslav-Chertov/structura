@@ -42,8 +42,8 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
                 <li className={styles.bonus}>Бонус: Финансовый планер 💰</li>
               </ul>
               <div className={styles.price}>
-                <span className={styles.current}>490&nbsp;₽</span>
-                <span className={styles.old}>1&nbsp;090&nbsp;₽</span>
+                <span className={styles.current}>790&nbsp;₽</span>
+                <span className={styles.old}>1&nbsp;790&nbsp;₽</span>
               </div>
               <button className={styles.button} onClick={onBuyClick}>
                 Получить планер

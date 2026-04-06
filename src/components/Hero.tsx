@@ -33,8 +33,8 @@ const Hero: React.FC<HeroProps> = ({ onBuyClick }) => {
               </video>
             </div>
             <div className={styles.price}>
-              <span className={styles.current}>490&nbsp;₽</span>
-              <span className={styles.old}>1&nbsp;090&nbsp;₽</span>
+              <span className={styles.current}>790&nbsp;₽</span>
+              <span className={styles.old}>1&nbsp;790&nbsp;₽</span>
             </div>
             <div className={styles.buttonGroup}>
               <button className={styles.button} onClick={onBuyClick}>
