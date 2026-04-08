@@ -42,7 +42,6 @@ export async function POST(req: NextRequest) {
       contactType: "email" | "telegram";
     };
 
-    // Server-side validation
     if (!contact || !contactType) {
       return NextResponse.json({ error: "Заполните поле" }, { status: 400 });
     }
@@ -78,7 +77,6 @@ export async function POST(req: NextRequest) {
 
 ${label}: ${contactDisplay}
 Дата: ${new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" })}
-IP: ${ip}
 
 Действия:
 1. Отправьте ссылку на оплату через ЮКассу
