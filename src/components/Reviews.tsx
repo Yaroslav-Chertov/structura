@@ -20,32 +20,32 @@ const reviews: Review[] = [
   {
     name: "Анна К.",
     text: "«Наконец-то появился порядок в задачах. Стало понятно, что делать каждый день, а не просто список дел без конца :)»",
-    avatar: "/avatars/avatar-1.png",
+    avatar: "/avatars/avatar-1.webp",
   },
   {
     name: "Игорь М.",
     text: "«Очень удобно, что это Google-таблица. Открыл с телефона, отметил прогресс, вечером посмотрел аналитику.»",
-    avatar: "/avatars/avatar-2.png",
+    avatar: "/avatars/avatar-2.webp",
   },
   {
     name: "Мария С.",
     text: "«Использую планер уже месяц. Ушло чувство хаоса, заметила, что появилось спокойствие.»",
-    avatar: "/avatars/avatar-3.png",
+    avatar: "/avatars/avatar-3.webp",
   },
   {
     name: "Дмитрий Л.",
     text: "«Понравилась структура и визуализация прогресса. Реально мотивирует не бросать цели.»",
-    avatar: "/avatars/avatar-4.png",
+    avatar: "/avatars/avatar-4.webp",
   },
   {
     name: "Екатерина В.",
     text: "«Планер помог навести порядок в задачах. Всё логично и без лишнего.»",
-    avatar: "/avatars/avatar-5.png",
+    avatar: "/avatars/avatar-5.webp",
   },
   {
     name: "Алексей Н.",
     text: "«Начинаю день с этого планера, сразу понятно, куда направлять энергию. Пушка!»",
-    avatar: "/avatars/avatar-6.png",
+    avatar: "/avatars/avatar-6.webp",
   },
 ];
 
