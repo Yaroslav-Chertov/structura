@@ -4,7 +4,15 @@ export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OgImage() {
+export default async function OgImage() {
+  const unboundedBold = await fetch(
+    new URL("/fonts/Unbounded-Bold.ttf", "https://structuraplaner.ru"),
+  ).then((res) => res.arrayBuffer());
+
+  const unboundedRegular = await fetch(
+    new URL("/fonts/Unbounded-Regular.ttf", "https://structuraplaner.ru"),
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     <div
       style={{
@@ -15,10 +23,17 @@ export default function OgImage() {
         flexDirection: "column",
         justifyContent: "center",
         padding: "80px",
-        fontFamily: "sans-serif",
+        fontFamily: "Unbounded",
       }}
     >
-      <div style={{ color: "#d4f06b", fontSize: 28, marginBottom: 24 }}>
+      <div
+        style={{
+          color: "#d4f06b",
+          fontSize: 28,
+          marginBottom: 24,
+          fontWeight: 400,
+        }}
+      >
         Structura
       </div>
       <div
@@ -37,6 +52,7 @@ export default function OgImage() {
           color: "rgba(240,237,232,0.6)",
           fontSize: 28,
           marginBottom: 48,
+          fontWeight: 400,
         }}
       >
         Цели · Задачи · Привычки · Аналитика
@@ -45,5 +61,20 @@ export default function OgImage() {
         790 ₽
       </div>
     </div>,
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Unbounded",
+          data: unboundedRegular,
+          weight: 400,
+        },
+        {
+          name: "Unbounded",
+          data: unboundedBold,
+          weight: 700,
+        },
+      ],
+    },
   );
 }

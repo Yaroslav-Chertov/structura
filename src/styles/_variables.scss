@@ -1,5 +1,5 @@
 // SCSS переменные
-$font-family: "Unbounded", "Arial", sans-serif;
+$font-family: var(--font-unbounded), "Arial", sans-serif;
 $font-size-base: 16px;
 
 // Цветовая палитра

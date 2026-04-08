@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
+import { Unbounded } from "next/font/google";
 import "../styles/main.scss";
+
+const unbounded = Unbounded({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+  variable: "--font-unbounded",
+});
 
 export const metadata: Metadata = {
   title: "Structura — недельный планер для продуктивности",
@@ -36,27 +44,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={unbounded.variable}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Preconnect для Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* Preload критического шрифта */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&display=swap"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
 
         {/* Yandex.Metrika */}
         <script
