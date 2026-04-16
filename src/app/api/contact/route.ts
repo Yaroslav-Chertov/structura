@@ -84,7 +84,6 @@ ${label}: ${contactDisplay}
 `.trim();
 
     if (!RESEND_API_KEY) {
-      // Local dev fallback — just log
       console.log("[CONTACT FORM]", {
         contactType,
         contact: contactDisplay,
