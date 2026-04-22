@@ -1,5 +1,7 @@
 @use "../styles/variables" as var;
 
+$lime: var.$accent;
+
 .steps {
   padding: 40px 20px 80px;
   background: #0b0b0b;
@@ -9,7 +11,7 @@
 .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #d4f06b;
+  color: $lime;
   margin-bottom: 12px;
 }
 
@@ -63,7 +65,7 @@
   margin-bottom: 14px;
   font-size: 3.2rem;
   font-weight: 800;
-  color: #d4f06b;
+  color: $lime;
 }
 
 .cta {
@@ -76,7 +78,7 @@
   font-size: 1.05rem;
   font-weight: 600;
   font-family: Unbounded, Arial, sans-serif;
-  background: #d4f06b;
+  background: $lime;
   color: #0b0b0b;
   border: none;
   border-radius: 14px;

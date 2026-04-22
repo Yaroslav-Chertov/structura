@@ -19,8 +19,8 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
         <div ref={headRef} data-animate className={styles.head}>
           <h2 className={styles.title}>Начните прямо сегодня</h2>
           <p className={styles.subtitle}>
-            Планируйте день, отмечайте прогресс и&nbsp;наблюдайте результаты
-            своих действий
+            На сайте вы смотрите интерактивное демо, а после покупки получаете
+            полноценный планер в Google Таблицах.
           </p>
         </div>
 
@@ -42,15 +42,15 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
                 <li className={styles.bonus}>Бонус: Финансовый планер 💰</li>
               </ul>
               <div className={styles.price}>
-                <span className={styles.current}>790&nbsp;₽</span>
-                <span className={styles.old}>1&nbsp;790&nbsp;₽</span>
+                <span className={styles.current}>490&nbsp;₽</span>
+                <span className={styles.old}>1&nbsp;090&nbsp;₽</span>
               </div>
               <button className={styles.button} onClick={onBuyClick}>
                 Получить планер
               </button>
               <p className={styles.note}>
-                Оставьте контакт — пришлём ссылку на оплату&nbsp;•&nbsp;Доступ
-                навсегда
+                Оставьте контакт — пришлём ссылку на оплату и сам планер в
+                Google Таблицах&nbsp;•&nbsp;Доступ навсегда
               </p>
             </div>
           </div>

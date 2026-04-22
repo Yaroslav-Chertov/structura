@@ -37,18 +37,30 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { contact, contactType } = body as {
+    const { contact, contactType } = body as Partial<{
       contact: string;
       contactType: "email" | "telegram";
-    };
+    }>;
 
-    if (!contact || !contactType) {
+    if (
+      typeof contact !== "string" ||
+      (contactType !== "email" && contactType !== "telegram")
+    ) {
       return NextResponse.json({ error: "Заполните поле" }, { status: 400 });
+    }
+
+    const trimmedContact = contact.trim();
+
+    if (!trimmedContact || trimmedContact.length > 120) {
+      return NextResponse.json(
+        { error: "Некорректные данные" },
+        { status: 400 },
+      );
     }
 
     if (contactType === "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(contact)) {
+      if (!emailRegex.test(trimmedContact)) {
         return NextResponse.json(
           { error: "Некорректный email" },
           { status: 400 },
@@ -57,7 +69,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (contactType === "telegram") {
-      const cleaned = contact.replace(/^@/, "");
+      const cleaned = trimmedContact.replace(/^@/, "");
       if (!/^[a-zA-Z0-9_]{3,32}$/.test(cleaned)) {
         return NextResponse.json(
           { error: "Некорректный Telegram username" },
@@ -69,9 +81,9 @@ export async function POST(req: NextRequest) {
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
     const label = contactType === "email" ? "Email" : "Telegram";
     const contactDisplay =
-      contactType === "telegram" && !contact.startsWith("@")
-        ? `@${contact}`
-        : contact;
+      contactType === "telegram" && !trimmedContact.startsWith("@")
+        ? `@${trimmedContact}`
+        : trimmedContact;
 
     const emailBody = `Новая заявка на планер Structura!
 

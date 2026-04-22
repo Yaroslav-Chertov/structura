@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductInfo from "@/components/ProductInfo";
 import Advantages from "@/components/Advantages";
+import MonthlyPlannerShowcase from "@/components/MonthlyPlannerShowcase";
 import Steps from "@/components/Steps";
 import Reviews from "@/components/Reviews";
 import BuySection from "@/components/BuySection";
@@ -24,6 +25,7 @@ export default function Page() {
       <Hero onBuyClick={openModal} />
       <ProductInfo />
       <Advantages />
+      <MonthlyPlannerShowcase />
       <Steps onBuyClick={openModal} />
       <Reviews />
       <BuySection onBuyClick={openModal} />

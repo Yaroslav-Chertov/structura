@@ -1,278 +1,243 @@
 @use "../styles/variables" as var;
 
+$lime: var.$accent;
+
 .hero {
-  background: #0b0b0b;
-}
-
-.visualSection {
-  padding: 50px 20px 80px;
-  background: #0b0b0b;
-}
-
-.banner {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px 24px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px;
-  border-radius: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  align-items: center;
-  gap: 40px;
-  background: #1c1c1c;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow:
-    0 40px 120px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  overflow: hidden;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    padding: 80px 48px 60px;
+  }
 }
 
-.banner::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(
-    circle,
-    rgba(212, 240, 107, 0.15),
-    transparent 70%
-  );
-  top: -150px;
-  right: -150px;
-  filter: blur(60px);
-  pointer-events: none;
-}
-
-.content {
-  // animation handled by [data-animate]
-}
-
-.descriptionBlock {
+.textBlock {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  max-width: 520px;
-  margin-bottom: 20px;
-}
+  flex-direction: column;
+  gap: 16px;
 
-.description {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 0 24px;
-  color: rgba(240, 237, 232, 0.6);
+  @media (max-width: 899px) {
+    flex: unset;
+  }
+
+  @media (min-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 48px;
+    row-gap: 20px;
+    align-items: start;
+
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 36px 40px;
+    backdrop-filter: blur(12px);
+  }
 }
 
 .title {
-  font-size: 3.4rem;
+  font-family: "Unbounded", sans-serif;
+  font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 6px;
   line-height: 1.1;
+  color: $lime;
+  margin: 0;
+
+  @media (min-width: 900px) {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+}
+
+.description {
+  font-family: "Unbounded", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var.$text;
+  line-height: 1.6;
+  margin: 0;
+
+  @media (min-width: 900px) {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 540px;
+    align-self: start;
+  }
+}
+
+.rightCol {
+  display: contents;
+
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    min-width: 220px;
+    align-items: flex-start;
+  }
 }
 
 .white {
-  color: #fff;
+  color: var.$white;
 }
 
 .price {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 1.9rem;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.current {
+  font-family: "Unbounded", sans-serif;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  color: $lime;
+}
 
-  .current {
-    color: #fff;
-  }
-
-  .old {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #c4c4c4;
-    text-decoration: line-through;
-  }
+.old {
+  font-family: "Unbounded", sans-serif;
+  font-size: 1.15rem;
+  color: var.$text;
+  text-decoration: line-through;
 }
 
 .note {
-  font-size: 0.85rem;
-  margin-top: 16px;
-  margin-bottom: 0;
-  color: rgba(240, 237, 232, 0.5);
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  color: var.$text;
+  margin: 0;
+  line-height: 1.6;
 }
 
 .buttonGroup {
   display: flex;
-  gap: 16px;
-  margin-bottom: 0;
-}
+  flex-direction: column;
+  gap: 10px;
 
-.button {
-  flex: 1;
-  padding: 16px 0;
-  font-size: 1.05rem;
-  font-weight: 600;
-  background: #d4f06b;
-  color: #0b0b0b;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-family: Unbounded, Arial, sans-serif;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      transform: translateY(-3px) scale(1.04);
-      background: #e8ff6b;
-      box-shadow: 0 20px 60px rgba(212, 240, 107, 0.3);
-    }
+  @media (min-width: 900px) {
+    flex-direction: column;
+    width: 100%;
   }
 }
 
-.button::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.25),
-    transparent 60%
-  );
-  top: -50%;
-  left: -50%;
-  opacity: 0;
-  transition: 0.4s;
-}
+.button {
+  background: $lime;
+  color: var.$bg;
+  border: none;
+  border-radius: 8px;
+  font-family: "Unbounded", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition:
+    transform 0.12s,
+    box-shadow 0.12s;
+  white-space: nowrap;
 
-@media (hover: hover) and (pointer: fine) {
-  .button:hover::after {
-    opacity: 1;
+  &:hover {
+    transform: translateY(-1px);
+    background: var.$accent-hover;
+    box-shadow: 0 8px 24px rgba(212, 240, 107, 0.3);
   }
 }
 
 .buttonOutline {
-  flex: 1;
-  padding: 16px 0;
+  background: transparent;
+  color: var.$white;
+  border: 1px solid var.$border;
+  border-radius: 8px;
+  font-family: "Unbounded", sans-serif;
   font-size: 1.05rem;
-  font-weight: 600;
-  color: #d4f06b;
-  border-radius: 14px;
-  border: 2px solid #d4f06b;
+  font-weight: 500;
+  padding: 14px 20px;
+  cursor: pointer;
   text-align: center;
-  transition: 0.2s ease;
-  background: none;
   text-decoration: none;
+  transition: border-color 0.15s;
+  white-space: nowrap;
 
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
+  &:hover {
+    border-color: var.$border-2;
   }
 }
 
-.videoWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  overflow: hidden;
-  background: #000;
-  transform: perspective(1000px) rotateY(-6deg) rotateX(2deg);
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-  box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.7),
-    0 0 60px rgba(212, 240, 107, 0.15);
-}
+.demoBlock {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-.videoWrapper::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 22px;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(212, 240, 107, 0.5),
-    transparent
-  );
-  opacity: 0.6;
-  filter: blur(12px);
-  z-index: 0;
-}
-
-.video {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .videoWrapper:hover {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.03);
-    box-shadow:
-      0 60px 140px rgba(0, 0, 0, 0.9),
-      0 0 80px rgba(212, 240, 107, 0.25);
-  }
-}
-
-.videoWrapperMobile {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .visualSection {
-    padding: 0 0 80px;
-  }
-
-  .banner {
-    grid-template-columns: 1fr;
-    padding: 36px 24px;
-    border-radius: 24px;
-    text-align: center;
-  }
-
-  .title {
-    font-size: 2.4rem;
-  }
-
-  .descriptionBlock {
-    max-width: 1100px;
-  }
-
-  .description {
-    margin: 0 auto 20px;
-  }
-
-  .price {
-    justify-content: center;
-    font-size: 1.4rem;
-  }
-
-  .buttonGroup {
-    flex-direction: column;
-  }
-
-  .videoWrapper {
-    display: none;
-  }
-
-  .videoWrapperMobile {
-    display: block;
+  @media (min-width: 900px) {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 18px;
-    overflow: hidden;
-    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid rgba(198, 241, 53, 0.18);
+    border-radius: 20px;
+    padding: 20px 20px 12px;
     box-shadow:
-      0 20px 50px rgba(0, 0, 0, 0.6),
-      0 0 40px rgba(212, 240, 107, 0.15);
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 8px 40px rgba(0, 0, 0, 0.45);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(198, 241, 53, 0.55) rgba(255, 255, 255, 0.06);
   }
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(198, 241, 53, 0.5);
+    border-radius: 999px;
+  }
+}
+
+.demoViewport {
+  min-width: 0;
+
+  @media (min-width: 900px) {
+    min-width: 1000px;
+    padding-right: 8px;
+  }
+}
+
+.demoLabel {
+  font-family: "Unbounded", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: $lime;
+  letter-spacing: 0.04em;
+}
+
+.demoNote {
+  max-width: 560px;
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var.$text;
+  margin: -2px 0 0;
 }

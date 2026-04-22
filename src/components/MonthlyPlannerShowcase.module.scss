@@ -1,0 +1,438 @@
+@use "../styles/variables" as v;
+
+$lime: v.$accent;
+$purple: #9a7bff;
+$dark: v.$bg;
+$surface: #141414;
+$surface-2: #1c1c1c;
+$border: rgba(255, 255, 255, 0.08);
+$muted: rgba(240, 237, 232, 0.55);
+$text: rgba(255, 255, 255, 0.9);
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+
+  @media (min-width: 900px) {
+    padding: 40px 16px 80px;
+  }
+}
+
+.head {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.title {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(1.9rem, 2.8vw, 2.8rem);
+  line-height: 1.1;
+  color: v.$white;
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  font-family: "Unbounded", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: v.$text;
+}
+
+.shell {
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(198, 241, 53, 0.55) rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(198, 241, 53, 0.18);
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 8px 40px rgba(0, 0, 0, 0.45);
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(198, 241, 53, 0.5);
+    border-radius: 999px;
+  }
+}
+
+.planner {
+  min-width: 1160px;
+  background: $dark;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid $border;
+  background: #0a0a0a;
+}
+
+.plannerTitle {
+  font-family: "Unbounded", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: v.$white;
+}
+
+.monthMeta {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid $border;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.metaItem {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.metaLabel {
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  color: $muted;
+}
+
+.metaValue {
+  font-family: "Unbounded", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: $lime;
+}
+
+.gridScroller {
+  overflow-x: auto;
+}
+
+.habitsGrid {
+  min-width: max-content;
+}
+
+.gridHead,
+.habitRow {
+  display: grid;
+  grid-template-columns: 150px repeat(31, 22px) 56px;
+  gap: 4px;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.gridHead {
+  border-bottom: 1px solid $border;
+  color: $muted;
+  font-family: "Unbounded", sans-serif;
+  font-size: 9px;
+}
+
+.habitRow {
+  border-bottom: 1px solid $border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.habitHead,
+.habitInput {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: $dark;
+}
+
+.habitHead {
+  font-weight: 700;
+  color: v.$text-bright;
+  padding-right: 8px;
+}
+
+.dayHead {
+  text-align: center;
+}
+
+.totalHead {
+  text-align: right;
+  color: $lime;
+}
+
+.habitInput,
+.goalInput,
+.textField textarea {
+  width: 100%;
+  background: transparent;
+  color: $text;
+  font-family: "Unbounded", sans-serif;
+  outline: none;
+}
+
+.habitInput {
+  border: none;
+  border-bottom: 1px solid $border;
+  font-size: 9px;
+  padding: 4px 0;
+  min-width: 0;
+
+  &::placeholder {
+    color: $muted;
+  }
+
+  &:focus {
+    border-bottom-color: $lime;
+  }
+}
+
+.dayCell {
+  display: flex;
+  justify-content: center;
+}
+
+.toggleBox {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(198, 241, 53, 0.85);
+  border-radius: 3px;
+  background: transparent;
+  color: #101010;
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.toggleBoxChecked {
+  background: $lime;
+}
+
+.totalCell {
+  text-align: right;
+  font-family: "Unbounded", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: $lime;
+}
+
+.bottomRow {
+  display: grid;
+  grid-template-columns: 330px 1fr 300px;
+  border-top: 1px solid $border;
+}
+
+.goalsCard,
+.reflectionCard,
+.chartCard {
+  padding: 16px 18px 18px;
+}
+
+.goalsCard,
+.reflectionCard {
+  border-right: 1px solid $border;
+}
+
+.blockTitle {
+  font-family: "Unbounded", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: $lime;
+  margin-bottom: 14px;
+}
+
+.goalRow {
+  display: grid;
+  grid-template-columns: 20px 1fr 18px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.goalNumber {
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: $lime;
+}
+
+.goalInput {
+  border: none;
+  border-bottom: 1px solid $border;
+  font-size: 10px;
+  padding: 5px 0;
+  min-width: 0;
+
+  &::placeholder {
+    color: $muted;
+  }
+
+  &:focus {
+    border-bottom-color: $lime;
+  }
+}
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  span {
+    font-family: "Unbounded", sans-serif;
+    font-size: 10px;
+    color: $muted;
+  }
+
+  textarea {
+    border: 1px solid $border;
+    border-radius: 10px;
+    resize: none;
+    min-height: 76px;
+    padding: 10px 12px;
+    font-size: 10px;
+    line-height: 1.6;
+    background: $surface;
+
+    &:focus {
+      border-color: rgba(198, 241, 53, 0.5);
+    }
+  }
+}
+
+.chartList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chartRow {
+  display: grid;
+  grid-template-columns: 110px 1fr 28px;
+  gap: 10px;
+  align-items: center;
+}
+
+.chartLabel {
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  color: $text;
+}
+
+.chartLabelMuted {
+  color: $muted;
+}
+
+.chartBarTrack {
+  height: 14px;
+  border-radius: 999px;
+  background: $surface-2;
+  overflow: hidden;
+}
+
+.chartBarFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, $purple 0%, $lime 100%);
+}
+
+.chartValue {
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: $lime;
+  text-align: right;
+}
+
+@media (max-width: 899px) {
+  .section {
+    padding: 40px 16px 50px;
+  }
+
+  .head {
+    margin-bottom: 28px;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .shell {
+    margin: 0;
+    padding: 0;
+    overflow-x: visible;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid rgba(198, 241, 53, 0.18);
+    border-radius: 16px;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 8px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  .planner {
+    min-width: unset;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .gridScroller {
+    display: none;
+  }
+
+  .monthMeta {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .bottomRow {
+    grid-template-columns: 1fr;
+    border-top: 1px solid $border;
+  }
+
+  .goalsCard,
+  .reflectionCard {
+    border-right: none;
+    border-bottom: 1px solid $border;
+  }
+
+  .goalsCard,
+  .reflectionCard,
+  .chartCard {
+    padding: 14px;
+  }
+
+  .chartRow {
+    grid-template-columns: 88px 1fr 24px;
+    gap: 8px;
+  }
+
+  .textField textarea {
+    min-height: 68px;
+  }
+}

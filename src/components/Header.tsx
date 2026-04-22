@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ onBuyClick }) => {
           </nav>
 
           <button className={styles.ctaButton} onClick={onBuyClick}>
-            Купить — 790&nbsp;₽
+            Купить — 490&nbsp;₽
           </button>
 
           <button
@@ -97,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({ onBuyClick }) => {
             </a>
           ))}
           <button className={styles.mobileCta} onClick={handleBuyClick}>
-            Купить — 790&nbsp;₽
+            Купить — 490&nbsp;₽
           </button>
         </nav>
       </div>

@@ -6,11 +6,11 @@ export const contentType = "image/png";
 
 export default async function OgImage() {
   const unboundedBold = await fetch(
-    new URL("/fonts/Unbounded-Bold.ttf", "https://structuraplaner.ru"),
+    new URL("../../public/fonts/Unbounded-Bold.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   const unboundedRegular = await fetch(
-    new URL("/fonts/Unbounded-Regular.ttf", "https://structuraplaner.ru"),
+    new URL("../../public/fonts/Unbounded-Regular.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
@@ -58,7 +58,7 @@ export default async function OgImage() {
         Цели · Задачи · Привычки · Аналитика
       </div>
       <div style={{ color: "#d4f06b", fontSize: 36, fontWeight: 700 }}>
-        790 ₽
+        490 ₽
       </div>
     </div>,
     {

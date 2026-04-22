@@ -21,9 +21,13 @@ const Footer: React.FC = () => {
 
     <div className={styles.links}>
       <p className={styles.heading}>Документы</p>
-      <a href="/offer" target="_blank">Публичная оферта</a>
-      <a href="/privacy" target="_blank">Политика конфиденциальности</a>
-      <a href="/consent" target="_blank">
+      <a href="/offer" target="_blank" rel="noopener noreferrer">
+        Публичная оферта
+      </a>
+      <a href="/privacy" target="_blank" rel="noopener noreferrer">
+        Политика конфиденциальности
+      </a>
+      <a href="/consent" target="_blank" rel="noopener noreferrer">
         Согласие на обработку персональных данных
       </a>
     </div>

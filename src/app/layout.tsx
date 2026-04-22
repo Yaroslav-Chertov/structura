@@ -1,18 +1,33 @@
 import type { Metadata } from "next";
-import { Unbounded } from "next/font/google";
+import localFont from "next/font/local";
 import "../styles/main.scss";
 
-const unbounded = Unbounded({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "700"],
+const unbounded = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Unbounded-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Unbounded-Regular.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Unbounded-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   display: "swap",
   variable: "--font-unbounded",
 });
 
 export const metadata: Metadata = {
-  title: "Structura — недельный планер для продуктивности",
+  title: "Structura — недельный планер за 490 ₽",
   description:
-    "Персональный планер на неделю в Google Таблицах. Цели, задачи, привычки и аналитика прогресса — всё в одном месте.",
+    "Персональный планер на неделю в Google Таблицах за 490 ₽. Цели, задачи, привычки и аналитика прогресса — всё в одном месте.",
   keywords: [
     "планер",
     "продуктивность",
@@ -24,9 +39,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Structura" }],
   creator: "Structura",
   openGraph: {
-    title: "Structura — недельный планер для продуктивности",
+    title: "Structura — недельный планер за 490 ₽",
     description:
-      "Персональный планер на неделю в Google Таблицах. Цели, задачи, привычки и аналитика прогресса.",
+      "Персональный планер на неделю в Google Таблицах за 490 ₽. Цели, задачи, привычки и аналитика прогресса.",
     url: "https://structuraplaner.ru",
     siteName: "Structura",
     locale: "ru_RU",

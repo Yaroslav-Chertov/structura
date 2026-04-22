@@ -183,8 +183,8 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
             </div>
 
             <div className={styles.priceRow}>
-              <span className={styles.price}>790&nbsp;₽</span>
-              <span className={styles.priceOld}>1&nbsp;790&nbsp;₽</span>
+              <span className={styles.price}>490&nbsp;₽</span>
+              <span className={styles.priceOld}>1&nbsp;090&nbsp;₽</span>
               <span className={styles.priceBadge}>−55%</span>
             </div>
 
@@ -218,6 +218,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
                   errorMsg ? styles.inputError : ""
                 }`}
                 type={contactType === "email" ? "email" : "text"}
+                maxLength={contactType === "email" ? 120 : 33}
                 placeholder={
                   contactType === "email" ? "your@email.com" : "@username"
                 }

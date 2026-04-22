@@ -63,7 +63,7 @@
   font-size: 1rem;
   font-weight: 600;
   font-family: Unbounded, Arial, sans-serif;
-  background: #d4f06b;
+  background: #c6f135;
   color: #0b0b0b;
   border: none;
   border-radius: 14px;
@@ -74,7 +74,7 @@
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       transform: translateY(-2px) scale(1.03);
-      background: #e8ff6b;
+      background: #c6f135;
       box-shadow: 0 12px 40px rgba(212, 240, 107, 0.25);
     }
   }
@@ -86,8 +86,8 @@
   font-weight: 600;
   font-family: Unbounded, Arial, sans-serif;
   background: none;
-  color: #d4f06b;
-  border: 2px solid #d4f06b;
+  color: #c6f135;
+  border: 2px solid #c6f135;
   border-radius: 14px;
   text-decoration: none;
   transition: 0.2s ease;
@@ -106,7 +106,7 @@
 }
 
 .link {
-  color: #d4f06b;
+  color: #c6f135;
   text-decoration: underline;
   text-underline-offset: 3px;
 }

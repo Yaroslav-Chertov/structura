@@ -1,0 +1,479 @@
+@use "../../styles/variables" as v;
+
+$lime: v.$accent;
+$purple: #9a7bff;
+$dark: v.$bg;
+$card: v.$surface;
+$border: #2a2a2a;
+$text: #e8e8e8;
+$muted: #666;
+
+.planner {
+  background: $dark;
+  border: 1px solid $border;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: "Unbounded", sans-serif;
+  color: $text;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-shadow: 0 0 60px rgba(198, 241, 53, 0.08);
+}
+
+.plannerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #000;
+  border-bottom: 1px solid $border;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.plannerTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.tab {
+  background: transparent;
+  border: 1px solid $border;
+  border-radius: 6px;
+  color: $muted;
+  font-family: "Unbounded", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    border-color: #444;
+    color: #bbb;
+  }
+}
+
+.tabActive {
+  background: $lime;
+  border-color: $lime;
+  color: #000;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: 230px 230px 1fr;
+  gap: 0;
+  border-bottom: 1px solid $border;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.goalsBlock {
+  padding: 14px 16px;
+  border-right: 1px solid $border;
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.dateLabel {
+  font-size: 9px;
+  color: $muted;
+}
+
+.dateValue {
+  font-size: 13px;
+  font-weight: 700;
+  color: $lime;
+}
+
+.goalsTitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: $lime;
+  margin-bottom: 8px;
+}
+
+.goalRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.goalNum {
+  font-size: 9px;
+  color: $lime;
+  font-weight: 700;
+  min-width: 14px;
+}
+
+.goalInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $border;
+  color: $text;
+  font-family: "Unbounded", sans-serif;
+  font-size: 9px;
+  padding: 3px 2px;
+  outline: none;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: $muted;
+  }
+  &:focus {
+    border-bottom-color: $lime;
+  }
+}
+
+.statsBlock {
+  padding: 14px 16px;
+  border-right: 1px solid $border;
+}
+
+.statsTitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: $lime;
+  margin-bottom: 10px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 16px;
+  font-size: 9px;
+  color: $muted;
+  align-items: center;
+}
+
+.statVal {
+  font-weight: 700;
+  color: $text;
+  text-align: right;
+}
+
+.statAccent {
+  color: $lime;
+}
+
+.chartWrap {
+  padding: 12px 12px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartSvg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  overflow: visible;
+}
+
+.dayGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dayCol {
+  padding: 10px 8px;
+  border-right: 1px solid $border;
+  border-top: 1px solid $border;
+  min-height: 160px;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.dayColWeekend {
+  background: rgba(154, 123, 255, 0.04);
+}
+
+.dayName {
+  font-size: 10px;
+  font-weight: 700;
+  color: $lime;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.dayNameWeekend {
+  color: $purple;
+}
+
+.dayDate {
+  font-size: 8px;
+  color: $muted;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.dayProgress {
+  font-size: 9px;
+  font-weight: 700;
+  color: $lime;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.dayProgressFull {
+  color: $lime;
+}
+
+.taskRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.taskInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: $text;
+  font-family: "Unbounded", sans-serif;
+  font-size: 8px;
+  padding: 2px 0;
+  outline: none;
+  min-width: 0;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: #333;
+  }
+  &:focus {
+    border-bottom-color: $border;
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid $border;
+  border-radius: 3px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.12s;
+  user-select: none;
+
+  svg {
+    width: 10px;
+    height: 8px;
+  }
+
+  &:hover {
+    border-color: $lime;
+  }
+}
+
+.checkboxChecked {
+  background: $lime;
+  border-color: $lime;
+}
+
+.diaryWrap {
+  padding: 16px;
+}
+
+.diaryTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: $lime;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $border;
+}
+
+.diaryTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 9px;
+  overflow-x: auto;
+}
+
+.diaryHead,
+.diaryRow {
+  display: grid;
+  grid-template-columns: 32px 70px 80px 90px 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 4px;
+  border-bottom: 1px solid $border;
+  min-width: 600px;
+}
+
+.diaryHead {
+  color: $muted;
+  font-weight: 500;
+}
+
+.diaryDay {
+  font-weight: 700;
+  color: $lime;
+}
+
+.diaryDayWeekend {
+  color: $purple;
+}
+
+.miniSelect {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 4px;
+  color: $text;
+  font-family: "Unbounded", sans-serif;
+  font-size: 8px;
+  padding: 4px 4px;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.15s;
+
+  &:focus {
+    border-color: $lime;
+  }
+}
+
+.energyHigh {
+  border-color: $lime !important;
+  color: $lime !important;
+}
+.energyMid {
+  border-color: #f1a435 !important;
+  color: #f1a435 !important;
+}
+.moodGood {
+  border-color: $lime !important;
+  color: $lime !important;
+}
+
+.diaryInput {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $border;
+  color: $text;
+  font-family: "Unbounded", sans-serif;
+  font-size: 8px;
+  padding: 3px 0;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: $muted;
+  }
+  &:focus {
+    border-bottom-color: $lime;
+  }
+}
+
+.habitsWrap {
+  padding: 16px;
+}
+
+.habitsTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: $lime;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $border;
+}
+
+.habitsTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-x: auto;
+}
+
+.habitsHead,
+.habitRow {
+  display: grid;
+  grid-template-columns: 140px repeat(7, 36px) 60px;
+  gap: 4px;
+  align-items: center;
+  padding: 7px 4px;
+  border-bottom: 1px solid $border;
+  font-size: 9px;
+  min-width: 500px;
+}
+
+.habitsHead {
+  color: $muted;
+  font-weight: 500;
+}
+
+.weekendLabel {
+  color: $purple;
+}
+
+.habitNameInput {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $border;
+  color: $text;
+  font-family: "Unbounded", sans-serif;
+  font-size: 8px;
+  padding: 2px 0;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: $muted;
+  }
+  &:focus {
+    border-bottom-color: $lime;
+  }
+}
+
+.habitCell {
+  display: flex;
+  justify-content: center;
+}
+
+.habitPct {
+  font-weight: 700;
+  color: $muted;
+  font-size: 9px;
+  text-align: right;
+}
+
+.habitPctFull {
+  color: $lime;
+}
+.habitPctPartial {
+  color: #f1a435;
+}
