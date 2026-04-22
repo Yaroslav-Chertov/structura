@@ -43,46 +43,40 @@ const DAY_DATES: Record<DayKey, string> = {
 const WEEKEND: DayKey[] = ["Сб", "Вс"];
 
 const INITIAL_STATE: PlannerState = {
-  weekGoals: [
-    "Закрыть 3 главных личных дела",
-    "Поддерживать порядок в расписании",
-    "Найти время на отдых и восстановление",
-    "",
-    "",
-  ],
+  weekGoals: ["Сделать 40 откликов", "1-2 собеса", "Закончить проект", "", ""],
   weekGoalsDone: [true, false, false, false, false],
   startDate: "13.04.2026",
   tasks: {
     Пн: [
-      { text: "Собрать план на неделю", done: true },
+      { text: "Отклики (5 шт)", done: true },
       { text: "Разобрать входящие и мелкие дела", done: true },
       { text: "30 минут движения", done: false },
       { text: "", done: false },
       { text: "", done: false },
     ],
     Вт: [
-      { text: "Закрыть бытовую задачу", done: true },
+      { text: "Отклики (5 шт)", done: true },
       { text: "Час на важный проект", done: true },
       { text: "Вечер без лишнего скролла", done: false },
       { text: "", done: false },
       { text: "", done: false },
     ],
     Ср: [
-      { text: "Сходить на прогулку", done: true },
+      { text: "Отклики (5 шт)", done: true },
       { text: "Доделать накопившиеся задачи", done: false },
       { text: "15 минут чтения", done: true },
       { text: "", done: false },
       { text: "", done: false },
     ],
     Чт: [
-      { text: "Разгрузить календарь", done: true },
+      { text: "Отклики (5 шт)", done: true },
       { text: "Тренировка или активная прогулка", done: false },
       { text: "Подготовить покупки на выходные", done: true },
       { text: "", done: false },
       { text: "", done: false },
     ],
     Пт: [
-      { text: "Закрыть главное дело недели", done: true },
+      { text: "Отклики (5 шт)", done: true },
       { text: "Навести порядок на рабочем месте", done: false },
       { text: "Оставить вечер свободным", done: true },
       { text: "", done: false },
