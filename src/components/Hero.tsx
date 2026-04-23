@@ -38,10 +38,6 @@ export default function Hero({ onBuyClick }: HeroProps) {
 
       <div className={styles.demoBlock}>
         <div className={styles.demoLabel}>✦ Интерактивное демо</div>
-        <p className={styles.demoNote}>
-          Можно покликать и посмотреть логику прямо здесь. После покупки вы
-          получаете сам планер в Google Таблицах.
-        </p>
         <div className={styles.demoViewport}>
           <PlannerDemo />
         </div>

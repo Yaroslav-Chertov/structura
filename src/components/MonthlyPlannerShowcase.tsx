@@ -280,9 +280,7 @@ export default function MonthlyPlannerShowcase() {
               <span className={`${styles.winBtn} ${styles.winMinimize}`} />
               <span className={`${styles.winBtn} ${styles.winMaximize}`} />
             </div>
-            <span className={styles.plannerTitle}>
-              🏆 STRUCTURA — Месячный трекер привычек
-            </span>
+            <span className={styles.plannerTitle}>🏆 Месячный трекер</span>
           </div>
 
           <div className={styles.monthMeta}>

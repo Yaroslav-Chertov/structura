@@ -39,7 +39,7 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
                 <li>Прогресс дня, недели и месяца</li>
                 <li>Трекер привычек с % выполнения</li>
                 <li>Дневник состояния и мыслей</li>
-                <li className={styles.bonus}>Бонус: Финансовый планер 💰</li>
+                <li className={styles.bonus}>Бонус: Финансовый планер</li>
               </ul>
               <div className={styles.price}>
                 <span className={styles.current}>490&nbsp;₽</span>
