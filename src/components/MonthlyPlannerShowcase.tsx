@@ -30,55 +30,159 @@ const INITIAL_STATE: MonthlyState = {
   month: "Май",
   year: "2026",
   goals: [
-    { text: "Спокойный ритм", done: true },
-    { text: "3 тренировки", done: false },
-    { text: "Дочитать книгу", done: false },
-    { text: "Разобрать финансы", done: true },
+    { text: "1-2 собеса", done: true },
+    { text: "Релиз проекта", done: true },
+    { text: "Больше сна", done: false },
+    { text: "Сходить в похож", done: true },
     { text: "", done: false },
   ],
   habits: [
     {
-      name: "Вода",
+      name: "Книга",
       days: [
-        true, true, false, true, true, false, true, true, false, true, true,
-        true, false, true, true, false, true, true, false, true, true, true,
-        false, true, false, true, true, false, true, true, false,
-      ],
-    },
-    {
-      name: "Чтение",
-      days: [
-        true, false, false, true, false, true, false, true, false, false, true,
-        true, false, false, true, false, true, false, false, true, false,
-        true, false, false, true, false, true, true, false, false, true,
-      ],
-    },
-    {
-      name: "Движение",
-      days: [
-        false, true, false, false, true, false, false, true, false, true,
-        false, false, true, false, false, true, false, false, true, false,
-        true, false, false, true, false, false, true, false, true, false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
         false,
       ],
     },
     {
-      name: "Без телефона перед сном",
+      name: "Спорт",
       days: [
-        false, false, true, true, false, false, true, false, true, false,
-        false, true, true, false, false, true, false, true, false, false,
-        true, true, false, true, false, false, true, false, true, false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+      ],
+    },
+    {
+      name: "Регулярные прогулки на обеде",
+      days: [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
         false,
       ],
     },
     {
-      name: "",
-      days: Array(31).fill(false),
+      name: "Английский",
+      days: [
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+      ],
     },
-    {
-      name: "",
-      days: Array(31).fill(false),
-    },
+    { name: "", days: Array(31).fill(false) },
+    { name: "", days: Array(31).fill(false) },
   ],
   reflection: {
     wins: "Лучше держал ритм, когда заранее видел весь месяц целиком.",
@@ -86,8 +190,7 @@ const INITIAL_STATE: MonthlyState = {
       "Меньше перегружать отдельные дни и заранее оставлять место на отдых.",
     insight:
       "Стабильность появляется не от идеального плана, а от простых повторяемых действий.",
-    focus:
-      "Сделать месяц спокойнее и чуть устойчивее, чем предыдущий.",
+    focus: "Сделать месяц спокойнее и чуть устойчивее, чем предыдущий.",
   },
 };
 
@@ -124,15 +227,6 @@ export default function MonthlyPlannerShowcase() {
     }));
   }, []);
 
-  const setGoalText = useCallback((index: number, text: string) => {
-    setState((current) => ({
-      ...current,
-      goals: current.goals.map((goal, goalIndex) =>
-        goalIndex === index ? { ...goal, text } : goal,
-      ),
-    }));
-  }, []);
-
   const toggleHabitDay = useCallback((habitIndex: number, dayIndex: number) => {
     setState((current) => ({
       ...current,
@@ -148,25 +242,6 @@ export default function MonthlyPlannerShowcase() {
       ),
     }));
   }, []);
-
-  const setHabitName = useCallback((habitIndex: number, name: string) => {
-    setState((current) => ({
-      ...current,
-      habits: current.habits.map((habit, currentHabitIndex) =>
-        currentHabitIndex === habitIndex ? { ...habit, name } : habit,
-      ),
-    }));
-  }, []);
-
-  const setReflection = useCallback(
-    (field: keyof ReflectionFields, value: string) => {
-      setState((current) => ({
-        ...current,
-        reflection: { ...current.reflection, [field]: value },
-      }));
-    },
-    [],
-  );
 
   const goalStats = useMemo(() => {
     const filled = state.goals.filter((goal) => goal.text.trim() !== "");
@@ -200,6 +275,11 @@ export default function MonthlyPlannerShowcase() {
       <div ref={cardRef} data-animate data-delay="1" className={styles.shell}>
         <div className={styles.planner}>
           <div className={styles.header}>
+            <div className={styles.windowButtons}>
+              <span className={`${styles.winBtn} ${styles.winClose}`} />
+              <span className={`${styles.winBtn} ${styles.winMinimize}`} />
+              <span className={`${styles.winBtn} ${styles.winMaximize}`} />
+            </div>
             <span className={styles.plannerTitle}>
               🏆 STRUCTURA — Месячный трекер привычек
             </span>
@@ -234,17 +314,13 @@ export default function MonthlyPlannerShowcase() {
 
               {state.habits.map((habit, habitIndex) => {
                 const completedDays = habit.days.filter(Boolean).length;
-
                 return (
                   <div key={habitIndex} className={styles.habitRow}>
-                    <input
-                      className={styles.habitInput}
-                      value={habit.name}
-                      onChange={(event) =>
-                        setHabitName(habitIndex, event.target.value)
-                      }
-                      placeholder={`Привычка ${habitIndex + 1}`}
-                    />
+                    <span
+                      className={`${styles.habitNameText} ${!habit.name ? styles.habitNameMuted : ""}`}
+                    >
+                      {habit.name || `Привычка ${habitIndex + 1}`}
+                    </span>
                     {habit.days.map((checked, dayIndex) => (
                       <span key={dayIndex} className={styles.dayCell}>
                         <ToggleBox
@@ -268,14 +344,11 @@ export default function MonthlyPlannerShowcase() {
               {state.goals.map((goal, goalIndex) => (
                 <div key={goalIndex} className={styles.goalRow}>
                   <span className={styles.goalNumber}>{goalIndex + 1}.</span>
-                  <input
-                    className={styles.goalInput}
-                    value={goal.text}
-                    onChange={(event) =>
-                      setGoalText(goalIndex, event.target.value)
-                    }
-                    placeholder={`Цель ${goalIndex + 1}`}
-                  />
+                  <span
+                    className={`${styles.goalText} ${goal.done && goal.text ? styles.goalTextDone : ""} ${!goal.text ? styles.goalTextMuted : ""}`}
+                  >
+                    {goal.text || `Цель ${goalIndex + 1}`}
+                  </span>
                   <ToggleBox
                     checked={goal.done}
                     onToggle={() => toggleGoal(goalIndex)}
@@ -286,46 +359,22 @@ export default function MonthlyPlannerShowcase() {
 
             <div className={styles.reflectionCard}>
               <div className={styles.blockTitle}>Итоги и рефлексия месяца</div>
-              <label className={styles.textField}>
+              <div className={styles.textField}>
                 <span>Что получилось хорошо?</span>
-                <textarea
-                  value={state.reflection.wins}
-                  onChange={(event) =>
-                    setReflection("wins", event.target.value)
-                  }
-                  rows={3}
-                />
-              </label>
-              <label className={styles.textField}>
+                <p className={styles.textStatic}>{state.reflection.wins}</p>
+              </div>
+              <div className={styles.textField}>
                 <span>Что улучшить в следующем месяце?</span>
-                <textarea
-                  value={state.reflection.improve}
-                  onChange={(event) =>
-                    setReflection("improve", event.target.value)
-                  }
-                  rows={3}
-                />
-              </label>
-              <label className={styles.textField}>
+                <p className={styles.textStatic}>{state.reflection.improve}</p>
+              </div>
+              <div className={styles.textField}>
                 <span>Главный инсайт месяца</span>
-                <textarea
-                  value={state.reflection.insight}
-                  onChange={(event) =>
-                    setReflection("insight", event.target.value)
-                  }
-                  rows={3}
-                />
-              </label>
-              <label className={styles.textField}>
+                <p className={styles.textStatic}>{state.reflection.insight}</p>
+              </div>
+              <div className={styles.textField}>
                 <span>Фокус на следующий месяц</span>
-                <textarea
-                  value={state.reflection.focus}
-                  onChange={(event) =>
-                    setReflection("focus", event.target.value)
-                  }
-                  rows={3}
-                />
-              </label>
+                <p className={styles.textStatic}>{state.reflection.focus}</p>
+              </div>
             </div>
 
             <div className={styles.chartCard}>
@@ -346,7 +395,9 @@ export default function MonthlyPlannerShowcase() {
                         }}
                       />
                     </div>
-                    <span className={styles.chartValue}>{item.completedDays}</span>
+                    <span className={styles.chartValue}>
+                      {item.completedDays}
+                    </span>
                   </div>
                 ))}
               </div>
