@@ -392,27 +392,10 @@ export default function PlannerDemo() {
     });
   }, []);
 
-  const setTaskText = useCallback((day: DayKey, idx: number, text: string) => {
-    setState((s) => {
-      const tasks = {
-        ...s.tasks,
-        [day]: s.tasks[day].map((t, i) => (i === idx ? { ...t, text } : t)),
-      };
-      return { ...s, tasks };
-    });
-  }, []);
-
   const toggleGoal = useCallback((idx: number) => {
     setState((s) => {
       const weekGoalsDone = s.weekGoalsDone.map((d, i) => (i === idx ? !d : d));
       return { ...s, weekGoalsDone };
-    });
-  }, []);
-
-  const setGoalText = useCallback((idx: number, text: string) => {
-    setState((s) => {
-      const weekGoals = s.weekGoals.map((g, i) => (i === idx ? text : g));
-      return { ...s, weekGoals };
     });
   }, []);
 
@@ -421,13 +404,6 @@ export default function PlannerDemo() {
       const habits = s.habits.map((h, i) =>
         i === hIdx ? { ...h, days: { ...h.days, [day]: !h.days[day] } } : h,
       );
-      return { ...s, habits };
-    });
-  }, []);
-
-  const setHabitName = useCallback((hIdx: number, name: string) => {
-    setState((s) => {
-      const habits = s.habits.map((h, i) => (i === hIdx ? { ...h, name } : h));
       return { ...s, habits };
     });
   }, []);
@@ -488,12 +464,9 @@ export default function PlannerDemo() {
               {state.weekGoals.map((g, i) => (
                 <div key={i} className={styles.goalRow}>
                   <span className={styles.goalNum}>{i + 1}.</span>
-                  <input
-                    className={styles.goalInput}
-                    value={g}
-                    onChange={(e) => setGoalText(i, e.target.value)}
-                    placeholder={`Цель ${i + 1}`}
-                  />
+                  <span className={styles.goalInput}>
+                    {g || `Цель ${i + 1}`}
+                  </span>
                   <Checkbox
                     checked={state.weekGoalsDone[i]}
                     onChange={() => toggleGoal(i)}
@@ -547,12 +520,7 @@ export default function PlannerDemo() {
                   </div>
                   {state.tasks[day].map((task, i) => (
                     <div key={i} className={styles.taskRow}>
-                      <input
-                        className={styles.taskInput}
-                        value={task.text}
-                        onChange={(e) => setTaskText(day, i, e.target.value)}
-                        placeholder="Задача..."
-                      />
+                      <span className={styles.taskInput}>{task.text}</span>
                       <Checkbox
                         checked={task.done}
                         onChange={() => toggleTask(day, i)}
@@ -611,22 +579,8 @@ export default function PlannerDemo() {
                     onChange={(v) => updateDiary(day, "mood", v)}
                     className={e.mood !== "Нейтрально" ? styles.moodGood : ""}
                   />
-                  <input
-                    className={styles.diaryInput}
-                    value={e.thoughts}
-                    onChange={(ev) =>
-                      updateDiary(day, "thoughts", ev.target.value)
-                    }
-                    placeholder="Мысли..."
-                  />
-                  <input
-                    className={styles.diaryInput}
-                    value={e.positives}
-                    onChange={(ev) =>
-                      updateDiary(day, "positives", ev.target.value)
-                    }
-                    placeholder="Позитивные моменты..."
-                  />
+                  <span className={styles.diaryInput}>{e.thoughts}</span>
+                  <span className={styles.diaryInput}>{e.positives}</span>
                 </div>
               );
             })}
@@ -654,12 +608,9 @@ export default function PlannerDemo() {
               const pct = getHabitPercent(habit.days);
               return (
                 <div key={hi} className={styles.habitRow}>
-                  <input
-                    className={styles.habitNameInput}
-                    value={habit.name}
-                    onChange={(e) => setHabitName(hi, e.target.value)}
-                    placeholder="Привычка..."
-                  />
+                  <span className={styles.habitNameInput}>
+                    {habit.name || "Привычка..."}
+                  </span>
                   {DAYS.map((day) => (
                     <span key={day} className={styles.habitCell}>
                       <Checkbox
