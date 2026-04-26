@@ -125,7 +125,7 @@ npm run start
 
 ## Другие проекты
 
-- [ONY Career Page](https://github.com/Yaroslav-Chertov/ony-agency) — SSR + интеграция Bitrix API, React
-- [GALITSKIY & GALITSKIY](https://github.com/Yaroslav-Chertov/galitskiy-and-galitskiy) — Vue 3, кастомный scroll-controller, Lighthouse 90+
+- [ONY Career Page](https://github.com/Yaroslav-Chertov/ony-agency) — SSR + интеграция Bitrix API, JSX
+- [GALITSKIY & GALITSKIY](https://github.com/Yaroslav-Chertov/galitskiy-and-galitskiy) — JSX, кастомный scroll-controller, Lighthouse 90+
 - [Стажер Онлайн — HR-платформа](https://github.com/Yaroslav-Chertov/hr-platform) — Vue.js + SCSS + Django + REST API
 - [Movies Explorer](https://github.com/Yaroslav-Chertov/movies-explorer-frontend) — Fullstack: React + Node.js + Express + MongoDB + JWT
