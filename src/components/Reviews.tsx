@@ -64,7 +64,7 @@ const Reviews: React.FC = () => {
         <Swiper
           modules={[Pagination]}
           spaceBetween={16}
-          slidesPerView={1.15}
+          slidesPerView={"auto"}
           pagination={{ clickable: true }}
         >
           {reviews.map((review, index) => (

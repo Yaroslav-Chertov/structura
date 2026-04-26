@@ -33,7 +33,7 @@ const INITIAL_STATE: MonthlyState = {
     { text: "1-2 собеса", done: true },
     { text: "Релиз проекта", done: true },
     { text: "Больше сна", done: false },
-    { text: "Сходить в похож", done: true },
+    { text: "Сходить в поход", done: true },
     { text: "", done: false },
   ],
   habits: [

@@ -17,7 +17,7 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
     <section id="buy" className={styles.buy}>
       <div className={styles.container}>
         <div ref={headRef} data-animate className={styles.head}>
-          <h2 className={styles.title}>Начните прямо сегодня</h2>
+          <h2 className={styles.title}>Начните сегодня</h2>
           <p className={styles.subtitle}>
             На сайте вы смотрите интерактивное демо, а после покупки получаете
             полноценный планер в Google Таблицах.
