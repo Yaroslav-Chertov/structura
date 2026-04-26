@@ -393,10 +393,10 @@ export default function PlannerDemo() {
   }, []);
 
   const toggleGoal = useCallback((idx: number) => {
-    setState((s) => {
-      const weekGoalsDone = s.weekGoalsDone.map((d, i) => (i === idx ? !d : d));
-      return { ...s, weekGoalsDone };
-    });
+    setState((s) => ({
+      ...s,
+      weekGoalsDone: s.weekGoalsDone.map((d, i) => (i === idx ? !d : d)),
+    }));
   }, []);
 
   const toggleHabitDay = useCallback((hIdx: number, day: DayKey) => {
@@ -428,11 +428,13 @@ export default function PlannerDemo() {
 
   return (
     <div className={styles.planner}>
-      {/* Header */}
       <div className={styles.plannerHeader}>
-        <span className={styles.plannerTitle}>
-          🚀 STRUCTURA — Недельный планер
-        </span>
+        <div className={styles.windowButtons}>
+          <span className={`${styles.winBtn} ${styles.winClose}`} />
+          <span className={`${styles.winBtn} ${styles.winMinimize}`} />
+          <span className={`${styles.winBtn} ${styles.winMaximize}`} />
+        </div>
+        <span className={styles.plannerTitle}>🚀 Недельный планер</span>
         <div className={styles.tabs}>
           {(["planner", "diary", "habits"] as Tab[]).map((t) => (
             <button
@@ -452,9 +454,7 @@ export default function PlannerDemo() {
 
       {activeTab === "planner" && (
         <>
-          {/* Top row: goals + stats + chart */}
           <div className={styles.topRow}>
-            {/* Goals */}
             <div className={styles.goalsBlock}>
               <div className={styles.dateRow}>
                 <span className={styles.dateLabel}>Начальная дата</span>

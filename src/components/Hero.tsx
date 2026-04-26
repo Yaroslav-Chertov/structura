@@ -24,7 +24,6 @@ export default function Hero({ onBuyClick }: HeroProps) {
             <span className={styles.current}>490 ₽</span>
             <span className={styles.old}>1 090 ₽</span>
           </div>
-          <p className={styles.note}>Доступ сразу после оплаты</p>
           <div className={styles.buttonGroup}>
             <button className={styles.button} onClick={onBuyClick}>
               Получить планер

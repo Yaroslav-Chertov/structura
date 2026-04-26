@@ -15,7 +15,11 @@ $lime: var.$accent;
     flex-direction: column;
     align-items: stretch;
     gap: 32px;
-    padding: 80px 48px 60px;
+    padding: 40px 16px 80px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 16px 80px;
   }
 }
 
@@ -96,7 +100,7 @@ $lime: var.$accent;
 
 .price {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
 }
 
@@ -104,7 +108,7 @@ $lime: var.$accent;
   font-family: "Unbounded", sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: $lime;
+  color: #fff;
 }
 
 .old {
@@ -112,14 +116,6 @@ $lime: var.$accent;
   font-size: 1.15rem;
   color: var.$text;
   text-decoration: line-through;
-}
-
-.note {
-  font-family: "Unbounded", sans-serif;
-  font-size: 10px;
-  color: var.$text;
-  margin: 0;
-  line-height: 1.6;
 }
 
 .buttonGroup {
@@ -229,6 +225,6 @@ $lime: var.$accent;
   font-family: "Unbounded", sans-serif;
   font-size: 24px;
   font-weight: 500;
-  color: $lime;
+  color: #fff;
   letter-spacing: 0.04em;
 }

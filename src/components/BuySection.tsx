@@ -11,7 +11,6 @@ interface BuySectionProps {
 const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
   const headRef = useScrollAnimation<HTMLDivElement>();
   const cardRef = useScrollAnimation<HTMLDivElement>(0.1);
-  const screenRef = useScrollAnimation<HTMLDivElement>(0.08);
 
   return (
     <section id="buy" className={styles.buy}>
@@ -24,14 +23,9 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
           </p>
         </div>
 
-        <div className={styles.main}>
-          <div
-            ref={cardRef}
-            data-animate
-            data-delay="1"
-            className={styles.card}
-          >
-            <div className={styles.features}>
+        <div ref={cardRef} data-animate data-delay="1" className={styles.card}>
+          <div className={styles.columns}>
+            <div className={styles.featuresCol}>
               <h3>Что ждёт внутри планера</h3>
               <ul>
                 <li>Цели на неделю с чек-листами</li>
@@ -41,6 +35,9 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
                 <li>Дневник состояния и мыслей</li>
                 <li className={styles.bonus}>Бонус: Финансовый планер</li>
               </ul>
+            </div>
+
+            <div className={styles.buyCol}>
               <div className={styles.price}>
                 <span className={styles.current}>490&nbsp;₽</span>
                 <span className={styles.old}>1&nbsp;090&nbsp;₽</span>
@@ -53,20 +50,6 @@ const BuySection: React.FC<BuySectionProps> = ({ onBuyClick }) => {
                 Google Таблицах&nbsp;•&nbsp;Доступ навсегда
               </p>
             </div>
-          </div>
-
-          <div
-            ref={screenRef}
-            data-animate
-            data-delay="2"
-            className={styles.screenWrapper}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/screens/screen.png"
-              alt="Скриншот планера Structura"
-              className={styles.screenImg}
-            />
           </div>
         </div>
       </div>

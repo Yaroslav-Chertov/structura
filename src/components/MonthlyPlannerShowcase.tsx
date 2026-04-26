@@ -42,35 +42,35 @@ const INITIAL_STATE: MonthlyState = {
       days: [
         true,
         true,
-        false,
-        true,
-        true,
-        false,
-        true,
-        true,
-        false,
         true,
         true,
         true,
-        false,
-        true,
-        true,
-        false,
-        true,
-        true,
-        false,
         true,
         true,
         true,
-        false,
-        true,
-        false,
         true,
         true,
-        false,
         true,
         true,
-        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
       ],
     },
     {
@@ -148,21 +148,21 @@ const INITIAL_STATE: MonthlyState = {
     {
       name: "Английский",
       days: [
-        false,
-        false,
         true,
         true,
-        false,
-        false,
-        true,
-        false,
-        true,
-        false,
-        false,
         true,
         true,
-        false,
-        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
         true,
         false,
         true,
@@ -194,22 +194,39 @@ const INITIAL_STATE: MonthlyState = {
   },
 };
 
-function ToggleBox({
+function Checkbox({
   checked,
-  onToggle,
+  onChange,
 }: {
   checked: boolean;
-  onToggle: () => void;
+  onChange: () => void;
 }) {
   return (
-    <button
-      type="button"
-      className={`${styles.toggleBox} ${checked ? styles.toggleBoxChecked : ""}`}
-      aria-pressed={checked}
-      onClick={onToggle}
+    <span
+      className={`${styles.checkbox} ${checked ? styles.checkboxChecked : ""}`}
+      onClick={onChange}
+      role="checkbox"
+      aria-checked={checked}
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          onChange();
+        }
+      }}
     >
-      {checked ? "✓" : ""}
-    </button>
+      {checked && (
+        <svg viewBox="0 0 10 8" fill="none">
+          <polyline
+            points="1,4 4,7 9,1"
+            stroke="#000"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
+    </span>
   );
 }
 
@@ -321,9 +338,9 @@ export default function MonthlyPlannerShowcase() {
                     </span>
                     {habit.days.map((checked, dayIndex) => (
                       <span key={dayIndex} className={styles.dayCell}>
-                        <ToggleBox
+                        <Checkbox
                           checked={checked}
-                          onToggle={() => toggleHabitDay(habitIndex, dayIndex)}
+                          onChange={() => toggleHabitDay(habitIndex, dayIndex)}
                         />
                       </span>
                     ))}
@@ -347,9 +364,9 @@ export default function MonthlyPlannerShowcase() {
                   >
                     {goal.text || `Цель ${goalIndex + 1}`}
                   </span>
-                  <ToggleBox
+                  <Checkbox
                     checked={goal.done}
-                    onToggle={() => toggleGoal(goalIndex)}
+                    onChange={() => toggleGoal(goalIndex)}
                   />
                 </div>
               ))}

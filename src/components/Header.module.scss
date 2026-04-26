@@ -77,7 +77,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   font-family: v.$font-family;
-  background: v.$accent;
+  background: #fff;
   color: #0b0b0b;
   border: none;
   border-radius: v.$radius-sm;
@@ -91,7 +91,6 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background: v.$accent-hover;
       transform: translateY(-1px);
       box-shadow: 0 8px 24px rgba(212, 240, 107, 0.3);
     }

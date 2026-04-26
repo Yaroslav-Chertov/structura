@@ -38,10 +38,78 @@
   gap: v.$space-sm;
   align-items: stretch;
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (min-width: 769px) and (max-width: 900px) {
     grid-template-columns: 1fr;
     gap: v.$space-sm;
   }
+}
+
+.mobileSlider {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.sliderRow {
+  display: flex;
+  align-items: stretch;
+}
+
+.mobileTrackWrapper {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+.mobileTrack {
+  display: flex;
+  align-items: stretch;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.mobileSlide {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+
+  .card {
+    width: 100%;
+    flex: 1;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(240, 237, 232, 0.2);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.dotActive {
+  background: v.$accent;
+  transform: scale(1.35);
 }
 
 .card {

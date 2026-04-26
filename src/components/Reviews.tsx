@@ -1,14 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import styles from "./Reviews.module.scss";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
 
 type Review = {
   name: string;
@@ -49,9 +43,51 @@ const reviews: Review[] = [
   },
 ];
 
+const AUTOPLAY_INTERVAL = 3500;
+const SWIPE_THRESHOLD = 40;
+
 const Reviews: React.FC = () => {
   const headRef = useScrollAnimation<HTMLDivElement>();
   const gridRef = useScrollAnimation<HTMLDivElement>(0.05);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  const startAutoplay = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % reviews.length);
+    }, AUTOPLAY_INTERVAL);
+  }, []);
+
+  useEffect(() => {
+    startAutoplay();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [startAutoplay]);
+
+  const goTo = (index: number) => {
+    setActiveIndex(index);
+    startAutoplay();
+  };
+
+  const prev = () => goTo((activeIndex - 1 + reviews.length) % reviews.length);
+  const next = () => goTo((activeIndex + 1) % reviews.length);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) >= SWIPE_THRESHOLD) {
+      delta > 0 ? next() : prev();
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <section id="reviews" className={styles.reviews}>
@@ -59,36 +95,51 @@ const Reviews: React.FC = () => {
         <h2 className={styles.title}>Что говорят пользователи</h2>
       </div>
 
-      {/* Mobile swiper */}
       <div className={styles.mobileSlider}>
-        <Swiper
-          modules={[Pagination]}
-          spaceBetween={16}
-          slidesPerView={"auto"}
-          pagination={{ clickable: true }}
-        >
-          {reviews.map((review, index) => (
-            <SwiperSlide key={index}>
-              <div className={styles.card}>
-                <div className={styles.header}>
-                  <img
-                    src={review.avatar}
-                    alt={review.name}
-                    className={styles.avatar}
-                  />
-                  <div className={styles.meta}>
-                    <span className={styles.author}>{review.name}</span>
-                    <div className={styles.stars}>★★★★★</div>
+        <div className={styles.sliderRow}>
+          <div
+            className={styles.mobileTrackWrapper}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
+            <div
+              className={styles.mobileTrack}
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+              {reviews.map((review, index) => (
+                <div key={index} className={styles.mobileSlide}>
+                  <div className={styles.card}>
+                    <div className={styles.header}>
+                      <img
+                        src={review.avatar}
+                        alt={review.name}
+                        className={styles.avatar}
+                      />
+                      <div className={styles.meta}>
+                        <span className={styles.author}>{review.name}</span>
+                        <div className={styles.stars}>★★★★★</div>
+                      </div>
+                    </div>
+                    <p className={styles.text}>{review.text}</p>
                   </div>
                 </div>
-                <p className={styles.text}>{review.text}</p>
-              </div>
-            </SwiperSlide>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.dots}>
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ""}`}
+              onClick={() => goTo(i)}
+              aria-label={`Отзыв ${i + 1}`}
+            />
           ))}
-        </Swiper>
+        </div>
       </div>
 
-      {/* Desktop grid */}
       <div ref={gridRef} data-animate className={styles.grid}>
         {reviews.map((review, index) => (
           <div key={index} className={styles.card}>

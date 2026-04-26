@@ -20,59 +20,82 @@
 }
 
 .mobileSlider {
-  max-width: 1200px;
-  margin: 0 auto;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    padding: 0 v.$space-sm;
+  }
 }
 
-:global(.swiper-slide:first-child) {
-  margin-left: 20px;
+.sliderRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-:global(.swiper-slide:last-child) {
-  margin-right: 20px;
+.mobileTrackWrapper {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
 }
 
-:global(.swiper) {
-  overflow: visible;
+.mobileTrack {
+  display: flex;
+  transition: transform 0.45s ease;
+  will-change: transform;
+  align-items: stretch;
 }
 
-:global(.swiper-pagination) {
-  position: static !important;
-  margin: 20px 0 10px;
+.mobileSlide {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+
+  .card {
+    width: 100%;
+  }
+}
+
+.dots {
   display: flex;
   justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  margin-bottom: 4px;
 }
 
-:global(.swiper-pagination-bullet) {
+.dot {
   width: 8px;
   height: 8px;
-  background: rgba(240, 237, 232, 0.2) !important;
-  opacity: 1;
-  margin: 0 4px;
-  transition: all 0.2s ease;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(240, 237, 232, 0.2);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
-:global(.swiper-pagination-bullet-active) {
-  background: v.$accent !important;
-  transform: scale(1.3);
+.dotActive {
+  background: v.$accent;
+  transform: scale(1.35);
 }
 
 .grid {
   display: none;
-}
 
-@media (min-width: 769px) {
-  .mobileSlider {
-    display: none;
-  }
-
-  .grid {
+  @media (min-width: 769px) {
     display: grid;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 v.$space-sm;
     grid-template-columns: repeat(3, 1fr);
     gap: v.$space-sm;
+    align-items: stretch;
   }
 }
 
@@ -82,10 +105,11 @@
   padding: v.$space-md 22px;
   text-align: left;
   height: 100%;
-  min-height: 200px;
   border: 1px solid v.$border;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   transition:
     transform v.$transition,
     border-color v.$transition;
@@ -138,4 +162,5 @@
   font-size: 0.95rem;
   line-height: 1.65;
   color: v.$text;
+  flex: 1;
 }
