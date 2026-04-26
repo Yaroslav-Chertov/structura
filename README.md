@@ -1,6 +1,6 @@
 # Structura — SaaS планер продуктивности
 
-![Structura preview](./preview.png)
+![Structura preview](./public/screens/preview.png)
 
 **Structura** — коммерческий SaaS-продукт: лендинг с воронкой захвата пользователя, оплатой и доставкой цифрового продукта (планера продуктивности).
 
