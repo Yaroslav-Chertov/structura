@@ -32,20 +32,20 @@ interface PlannerState {
 
 const DAYS: DayKey[] = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 const DAY_DATES: Record<DayKey, string> = {
-  Пн: "13.04",
-  Вт: "14.04",
-  Ср: "15.04",
-  Чт: "16.04",
-  Пт: "17.04",
-  Сб: "18.04",
-  Вс: "19.04",
+  Пн: "11.05",
+  Вт: "12.05",
+  Ср: "13.05",
+  Чт: "14.05",
+  Пт: "15.05",
+  Сб: "16.05",
+  Вс: "17.05",
 };
 const WEEKEND: DayKey[] = ["Сб", "Вс"];
 
 const INITIAL_STATE: PlannerState = {
   weekGoals: ["Сделать 40 откликов", "1-2 собеса", "Закончить проект", "", ""],
   weekGoalsDone: [true, false, false, false, false],
-  startDate: "13.04.2026",
+  startDate: "11.05.2026",
   tasks: {
     Пн: [
       { text: "Отклики (5 шт)", done: true },
